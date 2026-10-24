@@ -117,20 +117,20 @@ Arrange the canvas into two large horizontal group panels stacked top and bottom
 
 Top Group Panel labelled "1. Distributed Systems Analogy: A 1,000 ms API Endpoint":
 Inside the top panel, place three horizontal flow cards from left to right:
-- Card A1 (blue #2563EB accent, #EFF6FF fill): "Baseline API · 1,000 ms" with caption "300 ms App Compute + 700 ms DB Locks & Network I/O"
-- Card A2 (indigo #4F46E5 accent, #EEF2FF fill): "Paper 10x Compute · 730 ms (1.37x)" with caption "App Code rewritten in Rust (300 ms -> 30 ms) · DB still takes 700 ms"
-- Card A3 (red #B91C1C accent, #FFF1F2 fill): "With 2x Traffic & 2.5x Payload Bloat · 1,000 ms" with caption "DB connection pool & JSON deserialization saturate · Gain erased"
+- First top card (blue #2563EB accent, #EFF6FF fill): "Baseline API · 1,000 ms" with caption "300 ms App Compute + 700 ms DB Locks & Network I/O"
+- Second top card (indigo #4F46E5 accent, #EEF2FF fill): "Paper 10x Compute · 730 ms (1.37x)" with caption "App Code rewritten in Rust (300 ms -> 30 ms) · DB still takes 700 ms"
+- Third top card (red #B91C1C accent, #FFF1F2 fill): "With 2x Traffic & 2.5x Payload Bloat · 1,000 ms" with caption "DB connection pool & JSON deserialization saturate · Gain erased"
 
 Bottom Group Panel labelled "2. Software Delivery Reality: An 80.0-Hour Two-Week Sprint":
-Inside the bottom panel, place three horizontal flow cards from left to right aligned directly below Cards A1, A2, and A3:
-- Card B1 (blue #2563EB accent, #EFF6FF fill): "Baseline Sprint · 80.0 Hours" with caption "24.0 h Hands-On Coding (30%) + 56.0 h Design, Review, Test & Ops (70%)"
-- Card B2 (indigo #4F46E5 accent, #EEF2FF fill): "Gross Full-Stack AI · 44.5 Hours (1.80x)" with caption "-35.5 h saved across Coding, K8s/SQL Triage, RFCs, Notes & Bots"
-- Focal Card B3 (amber #B45309 accent, #FFFBEB fill, bold border, person-and-check mark): "Human Verification & PR Review Queue · 80.0 Hours" with caption "+98% PRs, +154% PR size, +81% clones & 1h56m doc slop eat all +35.5 h"
+Inside the bottom panel, place three horizontal flow cards from left to right aligned directly below the three top cards:
+- First bottom card (blue #2563EB accent, #EFF6FF fill): "Baseline Sprint · 80.0 Hours" with caption "24.0 h Hands-On Coding (30%) + 56.0 h Design, Review, Test & Ops (70%)"
+- Second bottom card (indigo #4F46E5 accent, #EEF2FF fill): "Gross Full-Stack AI · 44.5 Hours (1.80x)" with caption "-35.5 h saved across Coding, K8s/SQL Triage, RFCs, Notes & Bots"
+- Third bottom focal card (amber #B45309 accent, #FFFBEB fill, bold border, person-and-check mark): "Human Verification & PR Review Queue · 80.0 Hours" with caption "+98% PRs, +154% PR size, +81% clones & 1h56m doc slop eat all +35.5 h"
 
 VISUAL CONNECTIONS (PRIVATE):
 Use medium solid indigo #4F46E5 arrows and solid red #B91C1C arrows:
-1. In the Top Panel, one solid indigo #4F46E5 arrow from Card A1 to Card A2 labelled "10x faster compute", and one solid red #B91C1C arrow from Card A2 to Card A3 labelled "2x requests + 2.5x payload".
-2. In the Bottom Panel, one solid indigo #4F46E5 arrow from Card B1 to Card B2 labelled "AI across all 6 stages (-35.5 h)", and one solid red #B91C1C arrow from Card B2 to Focal Card B3 labelled "Slop & verification rebound (+35.5 h)".
+1. In the Top Panel, one solid indigo #4F46E5 arrow from "Baseline API · 1,000 ms" to "Paper 10x Compute · 730 ms (1.37x)" labelled "10x faster compute", and one solid red #B91C1C arrow from "Paper 10x Compute · 730 ms (1.37x)" to "With 2x Traffic & 2.5x Payload Bloat · 1,000 ms" labelled "2x requests + 2.5x payload".
+2. In the Bottom Panel, one solid indigo #4F46E5 arrow from "Baseline Sprint · 80.0 Hours" to "Gross Full-Stack AI · 44.5 Hours (1.80x)" labelled "AI across all 6 stages (-35.5 h)", and one solid red #B91C1C arrow from "Gross Full-Stack AI · 44.5 Hours (1.80x)" to "Human Verification & PR Review Queue · 80.0 Hours" labelled "Slop & verification rebound (+35.5 h)".
 No vertical arrows crossing between panels. Total connector count: 4.
 
 LEGEND (VISIBLE):
@@ -140,7 +140,7 @@ Place a compact legend strip at the bottom outside the main boundary with three 
 - Amber #B45309 / Red #B91C1C: "Downstream bottleneck saturation from volume & payload bloat"
 
 FINAL CHECK (PRIVATE, DO NOT PRINT):
-Exactly two horizontal group panels, three cards per panel (six cards total), four horizontal arrows total, three legend items each once. No printed layout words, no title above the canvas.
+Exactly two horizontal group panels, three cards per panel (six cards total), four horizontal arrows total, three legend items each once. Do not print node letters or codes such as A1, A2, A3, B1, B2, or B3 on any card. No printed layout words, no title above the canvas.
 ```
 
 ---
@@ -161,7 +161,7 @@ ICONS (PRIVATE):
 One small simple line icon beside each card title, same size and stroke throughout: a lightning bolt on left-column speedup cards, a warning-magnifier or person-and-check mark on right-column verification tax cards. No invented brand logos.
 
 SPATIAL LAYOUT AND EXACT LABELS (PRIVATE):
-Arrange the canvas into two equal columns ("Left Column: Gross AI Speedup · -35.5 h Saved" in blue #2563EB and "Right Column: Slop & Verification Rebound · +35.5 h Added" in amber #B45309) separated by a narrow central spine of six stage badges, with six horizontal rows aligned across both columns and a bottom totals bar.
+Arrange the canvas into two equal columns (left header "Gross AI Speedup · -35.5 h Saved" in blue #2563EB and right header "Slop & Verification Rebound · +35.5 h Added" in amber #B45309) separated by a narrow central spine of six stage badges, with six horizontal rows aligned across both columns and a bottom totals bar.
 
 Row 1 (Hands-On Coding):
 - Left blue #2563EB card (#EFF6FF fill): "Boilerplate & Feature Generation · -19.0 h" with caption "24.0 h -> 5.0 h raw coding time"
@@ -207,7 +207,7 @@ Place a compact legend strip at the bottom outside the main boundary with three 
 - Red #B91C1C: "Code bloat cleanup, bug rework & production incident tax"
 
 FINAL CHECK (PRIVATE, DO NOT PRINT):
-Exactly six aligned rows, one left card, one center badge, and one right card per row, two bottom summary cards, 12 short horizontal arrows total, three legend items each once. No printed layout words, no title above the canvas.
+Exactly six aligned rows, one left card, one center badge, and one right card per row, two bottom summary cards, 12 short horizontal arrows total, three legend items each once. Do not print the words "Left Column:" or "Right Column:" in the headers. No printed layout words, no title above the canvas.
 ```
 
 ---
@@ -230,22 +230,22 @@ One small simple line icon beside each card name: a clean modular-cube icon on t
 SPATIAL LAYOUT AND EXACT LABELS (PRIVATE):
 Arrange the canvas into two equal side-by-side panels with a bottom telemetry comparison bar and a legend strip outside the bottom boundary.
 
-Left Panel (blue #2563EB outline, #F8FAFC background) labelled "Left: Human Engineering (Refactor & Reuse Mode)":
+Left Panel (blue #2563EB outline, #F8FAFC background) labelled "Human Engineering (Refactor & Reuse Mode)":
 Inside the left panel, show a clean three-card vertical architecture:
-- Top card (blue #2563EB accent, #EFF6FF fill): "1. Understand Existing Module Graph" with caption "Reads cross-file callers & domain invariants before editing"
-- Middle card (teal #0F766E accent, #F0FDFA fill): "2. Move & Consolidate Shared Logic" with caption "LinearB P75 Refactor Rate: 0.37 (1.5x to 2.2x higher than AI PRs)"
-- Bottom card (indigo #4F46E5 accent, #EEF2FF fill): "3. Compact, Incremental Diff (~157 LOC)" with caption "Single source of truth · Easy for teammates to review & debug"
+- First left card (blue #2563EB accent, #EFF6FF fill): "1. Understand Existing Module Graph" with caption "Reads cross-file callers & domain invariants before editing"
+- Second left card (teal #0F766E accent, #F0FDFA fill): "2. Move & Consolidate Shared Logic" with caption "LinearB P75 Refactor Rate: 0.37 (1.5x to 2.2x higher than AI PRs)"
+- Third left card (indigo #4F46E5 accent, #EEF2FF fill): "3. Compact, Incremental Diff (~157 LOC)" with caption "Single source of truth · Easy for teammates to review & debug"
 
-Right Panel (focal red #B91C1C outline, #FFF1F2 pale tint) labelled "Right: AI Write-Only Mode (Additive Wrapper Bloat)":
+Right Panel (focal red #B91C1C outline, #FFF1F2 pale tint) labelled "AI Write-Only Mode (Additive Wrapper Bloat)":
 Inside the right panel, show four stacked cards illustrating structural erosion:
-- Card R1 (red #B91C1C accent, white fill): "1. Loses Cross-File Context (-35% Reuse)" with caption "Avoids touching existing modules · Invents parallel helper files"
-- Card R2 (red #B91C1C accent, white fill): "2. Copy-Paste Clones (+81% Block Duplication)" with caption "GitClear 2026: Moved lines collapsed 21% -> 3.8% (-70% refactoring)"
-- Card R3 (amber #B45309 accent, #FFFBEB fill): "3. Defensive Error-Masking (+47% Guards)" with caption "Wraps broken state in try/catch, null-checks & fallback mocks"
-- Card R4 (red #B91C1C accent, white fill): "4. Bloated PR Diff (293 to 408 LOC at P75)" with caption "-74% legacy maintenance · Requires +3.0 h de-slop cleanup per sprint"
+- First right card (red #B91C1C accent, white fill): "1. Loses Cross-File Context (-35% Reuse)" with caption "Avoids touching existing modules · Invents parallel helper files"
+- Second right card (red #B91C1C accent, white fill): "2. Copy-Paste Clones (+81% Block Duplication)" with caption "GitClear 2026: Moved lines collapsed 21% -> 3.8% (-70% refactoring)"
+- Third right card (amber #B45309 accent, #FFFBEB fill): "3. Defensive Error-Masking (+47% Guards)" with caption "Wraps broken state in try/catch, null-checks & fallback mocks"
+- Fourth right card (red #B91C1C accent, white fill): "4. Bloated PR Diff (293 to 408 LOC at P75)" with caption "-74% legacy maintenance · Requires +3.0 h de-slop cleanup per sprint"
 
 VISUAL CONNECTIONS (PRIVATE):
-1. Inside the Left Panel, draw two solid blue #2563EB vertical arrows connecting Top card -> Middle card -> Bottom card.
-2. Inside the Right Panel, draw three solid red #B91C1C vertical arrows connecting Card R1 -> Card R2 -> Card R3 -> Card R4.
+1. Inside the Left Panel, draw two solid blue #2563EB vertical arrows connecting "1. Understand Existing Module Graph" -> "2. Move & Consolidate Shared Logic" -> "3. Compact, Incremental Diff (~157 LOC)".
+2. Inside the Right Panel, draw three solid red #B91C1C vertical arrows connecting "1. Loses Cross-File Context (-35% Reuse)" -> "2. Copy-Paste Clones (+81% Block Duplication)" -> "3. Defensive Error-Masking (+47% Guards)" -> "4. Bloated PR Diff (293 to 408 LOC at P75)".
 No arrows between the Left Panel and Right Panel. Total connector count: 5.
 
 LEGEND (VISIBLE):
@@ -255,7 +255,7 @@ Place a compact legend strip at the bottom outside the main boundary with three 
 - Red #B91C1C: "Code duplication (+81%) & collapsed refactoring (-70%)"
 
 FINAL CHECK (PRIVATE, DO NOT PRINT):
-Two side-by-side panels, three cards in the left panel, four cards in the right panel, five vertical arrows total, three legend items each once. No printed layout words, no title above the canvas.
+Two side-by-side panels, three cards in the left panel, four cards in the right panel, five vertical arrows total, three legend items each once. Do not print the prefixes "Left:" or "Right:" in the panel headers. No printed layout words, no title above the canvas.
 ```
 
 ---
@@ -280,24 +280,24 @@ Arrange the canvas from left to right across two main phases plus a bottom net-m
 
 Left Panel (violet #7C3AED outline, #F5F3FF pale tint) labelled "Phase 1: Automated Evidence Collection (-5.5 h Saved · 12.0 h -> 6.5 h)":
 Inside the left panel, stack three horizontal cards:
-- Card L1 (violet #7C3AED accent, white fill): "1. Kubernetes & Pod Triage Agent" with caption "Runs kubectl logs, kubectl exec, port-forward & live API probes"
-- Card L2 (blue #2563EB accent, white fill): "2. Database & CI Pipeline Agent" with caption "Connects to PostgreSQL, runs diagnostic SQL & parses CI failure traces"
-- Card L3 (teal #0F766E accent, white fill): "3. Automated Test Scaffolder" with caption "Generates unit & integration test boilerplate in seconds"
+- First left card (violet #7C3AED accent, white fill): "1. Kubernetes & Pod Triage Agent" with caption "Runs kubectl logs, kubectl exec, port-forward & live API probes"
+- Second left card (blue #2563EB accent, white fill): "2. Database & CI Pipeline Agent" with caption "Connects to PostgreSQL, runs diagnostic SQL & parses CI failure traces"
+- Third left card (teal #0F766E accent, white fill): "3. Automated Test Scaffolder" with caption "Generates unit & integration test boilerplate in seconds"
 
 Right Panel (focal red #B91C1C outline, #FFF1F2 pale tint) labelled "Phase 2: The Comprehension & Rework Rebound (+8.0 h Added · 6.5 h -> 14.5 h)":
-Inside the right panel, stack three horizontal cards aligned with Cards L1 to L3:
-- Focal Card R1 (red #B91C1C accent, white fill, bold border): "1. The Zero-Mental-Map Penalty (+3.5 h)" with caption "Engineer did not write the code · Must reverse-engineer AI logic during live outage"
-- Card R2 (amber #B45309 accent, #FFFBEB fill): "2. Confident Root-Cause Hallucinations (+2.5 h)" with caption "Microsoft Research (2026): Plausible but wrong causal stories waste hours on dead ends"
-- Card R3 (red #B91C1C accent, white fill): "3. Tautological Tests & +54% Bugs/Dev (+2.0 h)" with caption "AI tests mock out or assert the buggy behavior itself · Faros 2026: +54% bugs/dev"
+Inside the right panel, stack three horizontal cards aligned with the three left cards:
+- First right focal card (red #B91C1C accent, white fill, bold border): "1. The Zero-Mental-Map Penalty (+3.5 h)" with caption "Engineer did not write the code · Must reverse-engineer AI logic during live outage"
+- Second right card (amber #B45309 accent, #FFFBEB fill): "2. Confident Root-Cause Hallucinations (+2.5 h)" with caption "Microsoft Research (2026): Plausible but wrong causal stories waste hours on dead ends"
+- Third right card (red #B91C1C accent, white fill): "3. Tautological Tests & +54% Bugs/Dev (+2.0 h)" with caption "AI tests mock out or assert the buggy behavior itself · Faros 2026: +54% bugs/dev"
 
 Bottom Net Math Card spanning both panels (indigo #4F46E5 accent, #EEF2FF fill):
 "Stage 2 Net Balance: 12.0 h Pre-AI  -  5.5 h Agent Triage  +  8.0 h Mental Map & Bug Rework  =  14.5 Hours (+2.5 h Net Increase)"
 
 VISUAL CONNECTIONS (PRIVATE):
 Draw three horizontal dashed steel-blue #0369A1 arrows connecting each Left Panel card to its corresponding Right Panel card:
-1. Card L1 -> Focal Card R1 labelled "Logs gathered, but code is unfamiliar".
-2. Card L2 -> Card R2 labelled "SQL run, but hypothesis is hallucinated".
-3. Card L3 -> Card R3 labelled "Tests pass, but assert buggy logic".
+1. From "1. Kubernetes & Pod Triage Agent" to "1. The Zero-Mental-Map Penalty (+3.5 h)" labelled "Logs gathered, but code is unfamiliar".
+2. From "2. Database & CI Pipeline Agent" to "2. Confident Root-Cause Hallucinations (+2.5 h)" labelled "SQL run, but hypothesis is hallucinated".
+3. From "3. Automated Test Scaffolder" to "3. Tautological Tests & +54% Bugs/Dev (+2.0 h)" labelled "Tests pass, but assert buggy logic".
 Bottom Net Math Card and legend items have no connectors. Total connector count: 3.
 
 LEGEND (VISIBLE):
@@ -307,7 +307,7 @@ Place a compact legend strip at the bottom outside the main boundary with three 
 - Red #B91C1C: "Mental map reconstruction & escaped bug rework (+8.0 h)"
 
 FINAL CHECK (PRIVATE, DO NOT PRINT):
-Two side-by-side phase panels, three cards per panel, one bottom net math card, three horizontal dashed arrows total, three legend items each once. No printed layout words, no title above the canvas.
+Two side-by-side phase panels, three cards per panel, one bottom net math card, three horizontal dashed arrows total, three legend items each once. Do not print node codes such as L1, L2, L3, R1, R2, or R3 on any card or arrow. No printed layout words, no title above the canvas.
 ```
 
 ---
@@ -333,18 +333,18 @@ SPATIAL LAYOUT AND EXACT LABELS (PRIVATE):
 Arrange the canvas into two horizontal tiers stacked top and bottom across most of the canvas, with three flow cards per tier (left to right) and a legend strip at the bottom outside the main boundary.
 
 Top Tier Panel labelled "Tier 1: System Design, RFCs & Meeting Docs (The Workslop Transfer Tax)":
-- Card T1 (teal #0F766E accent, #F0FDFA fill): "1. Sender Prompts AI (Saves ~20 min)" with caption "Generates 10-page RFC, slide deck or 15 Jira subtasks in one shot"
-- Card T2 (amber #B45309 accent, #FFFBEB fill): "2. Polished But Context-Free 'Workslop'" with caption "Stanford/HBR (2025): 40% of workers receive it · Generic patterns, invented assumptions"
-- Card T3 (red #B91C1C accent, #FFF1F2 fill): "3. Receiver Pays 1 hr 56 min Per Incident" with caption "Teammates decode & rewrite spec · Faros 2026: +13.8% task restarts (+5.5 h design tax)"
+- First top card (teal #0F766E accent, #F0FDFA fill): "1. Sender Prompts AI (Saves ~20 min)" with caption "Generates 10-page RFC, slide deck or 15 Jira subtasks in one shot"
+- Second top card (amber #B45309 accent, #FFFBEB fill): "2. Polished But Context-Free 'Workslop'" with caption "Stanford/HBR (2025): 40% of workers receive it · Generic patterns, invented assumptions"
+- Third top card (red #B91C1C accent, #FFF1F2 fill): "3. Receiver Pays 1 hr 56 min Per Incident" with caption "Teammates decode & rewrite spec · Faros 2026: +13.8% task restarts (+5.5 h design tax)"
 
 Bottom Tier Panel labelled "Tier 2: Pull Request Review & AI Review Agents (The Verification Logjam)":
-- Card B1 (blue #2563EB accent, #EFF6FF fill): "1. Author Pushes +98% More & +154% Larger PRs" with caption "LinearB 2026: P75 diff jumps from 157 LOC (manual) to 293 to 408 LOC (AI)"
-- Card B2 (amber #B45309 accent, #FFFBEB fill): "2. AI Code Review Bot Adds Low-Signal Noise" with caption "MSR '26: 12 of 13 bots <60% signal · Cihan et al.: PR closure time +42% (5h52m -> 8h20m)"
-- Focal Card B3 (amber #B45309 accent, #FFFBEB fill, bold border, person-and-check mark): "3. Human Reviewer Queue · 18.5 h (+85% Load)" with caption "5.3x longer pickup wait (17.6h vs 3.3h) · <60% AI PR acceptance · 31% merge unreviewed"
+- First bottom card (blue #2563EB accent, #EFF6FF fill): "1. Author Pushes +98% More & +154% Larger PRs" with caption "LinearB 2026: P75 diff jumps from 157 LOC (manual) to 293 to 408 LOC (AI)"
+- Second bottom card (amber #B45309 accent, #FFFBEB fill): "2. AI Code Review Bot Adds Low-Signal Noise" with caption "MSR '26: 12 of 13 bots <60% signal · Cihan et al.: PR closure time +42% (5h52m -> 8h20m)"
+- Third bottom focal card (amber #B45309 accent, #FFFBEB fill, bold border, person-and-check mark): "3. Human Reviewer Queue · 18.5 h (+85% Load)" with caption "5.3x longer pickup wait (17.6h vs 3.3h) · <60% AI PR acceptance · 31% merge unreviewed"
 
 VISUAL CONNECTIONS (PRIVATE):
-1. In Top Tier, draw two solid amber #B45309 horizontal arrows: Card T1 -> Card T2 labelled "Unedited output", and Card T2 -> Card T3 labelled "Effort shifted downstream".
-2. In Bottom Tier, draw two solid red #B91C1C horizontal arrows: Card B1 -> Card B2 labelled "Large diff triggers bot comments", and Card B2 -> Focal Card B3 labelled "Noise + missing context stalls review".
+1. In Top Tier, draw two solid amber #B45309 horizontal arrows: from "1. Sender Prompts AI (Saves ~20 min)" to "2. Polished But Context-Free 'Workslop'" labelled "Unedited output", and from "2. Polished But Context-Free 'Workslop'" to "3. Receiver Pays 1 hr 56 min Per Incident" labelled "Effort shifted downstream".
+2. In Bottom Tier, draw two solid red #B91C1C horizontal arrows: from "1. Author Pushes +98% More & +154% Larger PRs" to "2. AI Code Review Bot Adds Low-Signal Noise" labelled "Large diff triggers bot comments", and from "2. AI Code Review Bot Adds Low-Signal Noise" to "3. Human Reviewer Queue · 18.5 h (+85% Load)" labelled "Noise + missing context stalls review".
 No vertical connectors between tiers. Total connector count: 4.
 
 LEGEND (VISIBLE):
