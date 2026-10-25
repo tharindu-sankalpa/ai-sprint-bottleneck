@@ -6,14 +6,18 @@ A document post on LinkedIn is a PDF that the feed renders as a swipeable carous
 
 ## How to produce it
 
-Give **Claude Design** (or your design tool) this file in full and say:
+1. **Generate the three `3:4` portrait diagrams** (`1792 × 2400`) from `docs/nano-banana-prompts.md` (Part B) and save them into `docs/diagrams/`:
+   - `docs/diagrams/li-01-sprint-tug-of-war.jpg` (placed on **Page 3** instead of the 35-cell spreadsheet table)
+   - `docs/diagrams/li-02-bloat-and-mental-map.jpg` (placed on **Page 5** to visualize the Stage 1 → Stage 2 rebound)
+   - `docs/diagrams/li-03-verification-funnel.jpg` (placed on **Page 11** to visualize the 5 anti-slop guardrails in the pipeline)
+2. Give **Claude Design** (or your design tool) this file in full plus those three portrait diagram images and say:
 
-> *"Read this brief in full and follow it exactly; add nothing that is not in it; run its closing checklist and report each item."*
+> *"Read this brief in full and follow it exactly; add nothing that is not in it; place the three portrait diagrams on Pages 3, 5, and 11 unaltered; run its closing checklist and report each item."*
 
-1. **Verify every page against this brief:** numbers, units, percentages, stage names, and arrow directions. The tool must not add or reword facts.
-2. **Export format:** PDF, **12 pages**, **4:5 portrait** (`1080 × 1350 px`, or `2160 × 2700 px` at 2× retina; also compatible with A4 portrait `210 × 297 mm` if exported as a standalone document). Keep 4:5 portrait as the primary feed choice so every slide fills the LinkedIn mobile viewport without letterboxing.
-3. **File name:** `why-ai-everywhere-is-still-not-10x-delivery.pdf`. LinkedIn displays the uploaded PDF file name as the document title in the feed.
-4. **Posting:** Upload the PDF with the companion LinkedIn post text at the end of this file. Links inside a LinkedIn PDF are not clickable, so study names are written out plainly on the slides and linked in the post text.
+3. **Verify every page against this brief:** numbers, units, percentages, stage names, and arrow directions. The tool must not add or reword facts.
+4. **Export format:** PDF, **12 pages**, **4:5 portrait** (`1080 × 1350 px`, or `2160 × 2700 px` at 2× retina; also compatible with A4 portrait `210 × 297 mm` if exported as a standalone document). Keep 4:5 portrait as the primary feed choice so every slide fills the LinkedIn mobile viewport without letterboxing.
+5. **File name:** `why-ai-everywhere-is-still-not-10x-delivery.pdf`. LinkedIn displays the uploaded PDF file name as the document title in the feed.
+6. **Posting:** Upload the PDF with the companion LinkedIn post text at the end of this file. Links inside a LinkedIn PDF are not clickable, so study names are written out plainly on the slides and linked in the post text.
 
 ---
 
@@ -75,6 +79,7 @@ Design a 12-page document for a LinkedIn document post (PDF carousel). Pages are
   - Slate `#334155` / `#475569` (sprint planning, meetings, CI/CD & ops) with pale tint `#F8FAFC`
   - Red `#B91C1C` (over-engineering, code duplication, bugs & prod incidents) with pale tint `#FFF1F2`
 - **Diagram & Table Cards:** White or pale-tint fill, solid `3 px` outline in `#334155`, `12 px` corner radius, `6 px` coloured left accent bar. Arrows are `3 px` with a single filled triangular head at the destination only. Never use double-headed arrows.
+- **Portrait Nano Banana Pro Diagrams (Pages 3, 5, and 11):** Place the `3:4` portrait images (`docs/diagrams/li-01-sprint-tug-of-war.jpg`, `docs/diagrams/li-02-bloat-and-mental-map.jpg`, and `docs/diagrams/li-03-verification-funnel.jpg`) unaltered and centred at full content width in the middle zone between the headline and the bottom footnote, without cropping, stretching, or recolouring.
 - **Cover Illustration (Page 1 only):** One vector diagram in the middle two-fifths of Page 1 showing six sprint stage discs on the left (Coding, Debugging/K8s, Design, Planning/Docs, Review Bots, CI/CD) feeding high-velocity blue streams (`-35.5h Gross AI Speedup`) into a central amber verification funnel (`+35.5h Slop, Over-Engineering & Review Tax`, marked with a person-and-check icon), exiting as a modest `1.21x Net Delivery` arrow on the right over a faint dot grid. No stock photos, robots, or brains.
 
 ---
@@ -132,22 +137,13 @@ Kicker: `THE 80-HOUR SPRINT · THREE REALITIES`
 
 Headline: `AI saves 35.5 hours of creation, then adds 35.5 hours of verification` (highlight "saves 35.5 hours" in blue `#2563EB` and "adds 35.5 hours" in amber `#B45309`)
 
-A 7-row comparison table across a 2-week (`10 days × 8 hours = 80.0 hours`) sprint:
+Portrait Diagram (placed full width in the center zone, replacing the dense 35-cell spreadsheet table):
+`docs/diagrams/li-01-sprint-tug-of-war.jpg`
 
-| Sprint Stage | 1. Pre-AI (`80h`) | 2. Gross AI Speedup (`44.5h`) | 3. Slop & Review Rebound | 4. Net Real AI Sprint (`80h`) |
-|---|---|---|---|---|
-| **1. Hands-on coding** | `24.0 h` | `5.0 h` (`-19.0h`) | `+3.0 h` (cleanup) | **`8.0 h`** (`-16.0h`) |
-| **2. Debugging, K8s/DB & tests** | `12.0 h` | `6.5 h` (`-5.5h`) | `+8.0 h` (AI bugs) | **`14.5 h`** (`+2.5h`) |
-| **3. System design & RFCs** | `12.0 h` | `8.5 h` (`-3.5h`) | `+5.5 h` (doc slop) | **`14.0 h`** (`+2.0h`) |
-| **4. Planning, meetings & slides** | `12.0 h` | `8.5 h` (`-3.5h`) | `+3.5 h` (sync/WIP) | **`12.0 h`** (`0.0h`) |
-| **5. PR code review & approval** | `10.0 h` | `8.0 h` (`-2.0h`) | `+10.5 h` (2× PRs) | **`18.5 h`** (`+8.5h`) |
-| **6. CI/CD, deploy & prod ops** | `10.0 h` | `8.0 h` (`-2.0h`) | `+5.0 h` (incidents) | **`13.0 h`** (`+3.0h`) |
-| **Total Sprint / Net Velocity** | **`80.0 h` (1.0x)** | **`44.5 h` (1.80x paper)** | **`+35.5 h` rebound** | **`80.0 h` (~1.21x tasks)** |
+Two concise takeaway lines below the diagram:
 
-Two bullets:
-
-- **Row 2 (`44.5 h`) is what developers feel in the moment.** Every prompt saves time right now: writing a function, querying a pod, drafting a doc, or generating slides.
-- **Row 4 (`80.0 h`) is what engineering telemetry actually records.** The `35.5 hours` saved in generation come back as `35.5 hours` of de-bloating code, verifying unfamiliar logic, reading workslop, and clearing PR queues.
+- **44.5 h is what developers feel in the moment:** Every prompt saves time writing code (`-19h`), triaging K8s/SQL (`-5.5h`), or drafting docs (`-7h`).
+- **80.0 h is what telemetry actually records:** All `35.5 hours` come right back as code cleanup (`+3h`), AI bug triage (`+8h`), workslop decoding (`+9h`), and 2× PR review queues (`+10.5h`).
 
 Footnote, secondary text: `Net result: +21% to +34% more tasks completed (1.21x to 1.34x), while PR review + debugging jumps from 22.0h (27.5%) to 33.0h (41.3%).`
 
@@ -185,16 +181,8 @@ Kicker: `STAGE 2 · DEBUGGING, K8S/DB TRIAGE & TESTING (12.0h → 14.5h)`
 
 Headline: `Agents gather pod logs and SQL fast, but AI code creates 54% more bugs` (highlight "54% more bugs" in red `#B91C1C`)
 
-Two-column comparison card:
-
-- **Left Column · Gross AI Triage Speedup (`-5.5 h` saved, blue `#2563EB` bar):**
-  - Agents run `kubectl logs`, `kubectl exec`, and port-forward services automatically.
-  - Agents connect to Postgres, inspect schemas, and run diagnostic SQL queries.
-  - Agents read CI/CD stack traces and scaffold unit/integration test suites (`12.0 h → 6.5 h`).
-- **Right Column · Verification & Bug Rebound (`+8.0 h` added, red `#B91C1C` bar):**
-  - **Debugging code nobody wrote:** Diagnosing a bug in AI-authored code requires learning the code from scratch during the incident.
-  - **Confident false hypotheses:** Microsoft Research (2026) found agents frequently state wrong root causes with high confidence, sending engineers down dead-end debugging paths.
-  - **Tautological unit tests:** AI-generated tests often assert the buggy implementation (`mocking the bug`), passing CI while leaking defects (`+54%` bugs/dev in Faros 2026).
+Portrait Diagram (placed full width in the center zone, showing how Stage 1 AI Write-Only Code Bloat flows into Stage 2 Debugging & Testing):
+`docs/diagrams/li-02-bloat-and-mental-map.jpg`
 
 Bottom summary bar: `12.0 h baseline - 5.5 h agent triage + 8.0 h debugging AI edge cases = 14.5 h net (+2.5 h increase).`
 
@@ -309,13 +297,8 @@ Kicker: `THE ENGINEERING PLAYBOOK · CUTTING THE SLOP TAX`
 
 Headline: `To keep the 35.5 hours AI saves, engineer strict anti-slop guardrails` (highlight "strict anti-slop guardrails" in indigo `#4F46E5`)
 
-Five actionable rules, each with a coloured left bar and bold lead:
-
-- **1. Ban raw "workslop" in RFCs and tickets (Teal `#0F766E` bar):** Require every author to verify and condense AI-generated designs into a 1-page constraints-and-tradeoffs brief before sharing. Never make teammates read unedited LLM output.
-- **2. Enforce hard PR size caps (`<150 LOC`) & DRY gates (Blue `#2563EB` bar):** Configure coding agents (`CLAUDE.md` / `.cursorrules`) to reuse existing modules, forbid speculative wrappers, and split changes into small, stacked PRs.
-- **3. Shift AI code review left to the IDE, not the PR queue (Amber `#B45309` bar):** Run AI review and static checks *before* `git push` (DORA 2025). Restrict PR bots to high-signal security and bug rules so human reviewers aren't buried in `<30%`-signal noise.
-- **4. Use agents for read-only K8s/DB evidence bundles (Violet `#7C3AED` bar):** Let agents correlate pod logs, traces, and SQL queries into a cited incident brief, but require explicit human verification before applying patches.
-- **5. Track Review Wait, Rework Rate, and Incidents/PR (Indigo `#4F46E5` bar):** Stop celebrating PR count or lines generated. Measure end-to-end cycle time and 14-day code churn.
+Portrait Diagram (placed full width in the center zone, showing the 4 AI generators feeding into the Human Verification Gate and splitting into the Slop Flood vs. the 5 Anti-Slop Guardrails):
+`docs/diagrams/li-03-verification-funnel.jpg`
 
 Footnote, secondary text: `Synthesized from DORA 2025 AI Capabilities Model, GitClear 2026 Maintainability Playbook, and Microsoft Research Bounded Delegation.`
 
@@ -386,10 +369,8 @@ Swipe through the 12-page breakdown below for the stage-by-stage 80-hour sprint 
 - [ ] **12 pages total**, 4:5 portrait (`1080 × 1350 px` or `2160 × 2700 px`), numbered `1/12` through `12/12`.
 - [ ] **Page 1** includes the 6-into-1 verification funnel vector illustration, 4 numbered points, and 5 source badges.
 - [ ] **Page 2** uses the `1,000 ms` distributed microservice pipeline analogy (no Amdahl's 1967 paper, no Concorde flight).
-- [ ] **Page 3** table sums match exactly:
-  - Pre-AI Baseline: `24.0 + 12.0 + 12.0 + 12.0 + 10.0 + 10.0 = 80.0 h`
-  - Gross AI Speedup: `5.0 + 6.5 + 8.5 + 8.5 + 8.0 + 8.0 = 44.5 h` (`-35.5 h` saved)
-  - Slop & Verification Rebound: `+3.0 + 8.0 + 5.5 + 3.5 + 10.5 + 5.0 = +35.5 h`
-  - Net Real-World AI Sprint: `8.0 + 14.5 + 14.0 + 12.0 + 18.5 + 13.0 = 80.0 h`
+- [ ] **Page 3** places the `3:4` portrait diagram `docs/diagrams/li-01-sprint-tug-of-war.jpg` unaltered at full content width instead of a dense 35-cell spreadsheet table.
+- [ ] **Page 5** places the `3:4` portrait diagram `docs/diagrams/li-02-bloat-and-mental-map.jpg` unaltered at full content width above the dark net-balance summary bar.
+- [ ] **Page 11** places the `3:4` portrait diagram `docs/diagrams/li-03-verification-funnel.jpg` unaltered at full content width.
 - [ ] **Pages 4 to 9** cover each of the 6 sprint stages in order with exact gross savings, rebound hours, and study citations.
 - [ ] **No text overflows any card**, and body text is at least `1/36` of page width (`captions/tables >= 1/45`).

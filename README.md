@@ -356,8 +356,8 @@ Show them the `80-hour` sprint breakdown, point to the `35.5 hours` of verificat
 ```text
 README.md                         Canonical Medium article and full-lifecycle 80-hour sprint analysis
 docs/claude-design-brief.md       12-page LinkedIn PDF carousel brief for Claude Design + LinkedIn post copy
-docs/nano-banana-prompts.md       7 image generation prompts (16:9) for Google Nano Banana Pro
-docs/diagrams/                    Generated diagram images (01 through 07) referenced by README.md
+docs/nano-banana-prompts.md       10 image generation prompts (7 in 16:9 for article + 3 in 3:4 for carousel)
+docs/diagrams/                    Generated 2K diagram images (01..07 for article, li-01..li-03 for carousel)
 ```
 
 ---
