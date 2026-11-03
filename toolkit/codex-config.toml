@@ -1,0 +1,17 @@
+# OpenAI Codex CLI Configuration (~/.codex/config.toml)
+# Cuts verbose reasoning chatter and keeps terminal output focused on the result and diffs.
+# Do not hardcode `model` here so Codex uses its current default GPT-5 / Codex model.
+
+# Options: "friendly" (default on new installs, chatty) | "pragmatic" (terse, direct) | "none" (uses AGENTS.md only)
+personality = "pragmatic"
+
+# Options: "low" | "medium" | "high"
+# Controls the length of the final answer itself (maps to the verbosity parameter in the Responses API).
+model_verbosity = "low"
+
+# Hides intermediate reasoning traces streamed into the interactive UI and `codex exec` output.
+hide_agent_reasoning = true
+
+# Optional middle ground if you set hide_agent_reasoning = false:
+# Options: "auto" | "concise" | "detailed" | "none"
+model_reasoning_summary = "concise"
