@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pre-Push Review"
+  short_description: "Run a local shift-left PR audit (<150 LOC, clones, silent failures, weak tests)"
+  default_prompt: "Use $pre-push-review to audit the current git diff before pushing."

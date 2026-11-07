@@ -1,0 +1,4 @@
+interface:
+  display_name: "De-Bloat & Silent-Failure Audit"
+  short_description: "Strip duplicate AI code blocks, dead wrappers, and silent try/catch error masking"
+  default_prompt: "Use $debloat-audit to simplify the recent code changes, consolidate duplicate blocks, and remove any silent error-masking wrappers."

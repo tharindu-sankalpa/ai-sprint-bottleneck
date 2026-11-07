@@ -1,0 +1,4 @@
+interface:
+  display_name: "Progressive Zoom"
+  short_description: "Explain code and architecture in 3 zoom levels (BLUF -> State Flow -> Code)"
+  default_prompt: "Use $progressive-zoom to explain this module or bug starting at Zoom Level 1 (30-second mental map)."

@@ -1,6 +1,6 @@
 ---
 name: one-page-rfc
-description: Prevents AI "workslop" in system design RFCs, Architecture Decision Records (ADRs), and sprint planning tickets. Forces any design proposal or feature spec into a 1-page human-scannable brief with explicit system boundaries, non-goals, two real alternatives, and executable completion evidence. Use whenever drafting an RFC, ADR, design doc, or breaking an epic into sprint tasks.
+description: "Prevents AI workslop in system design RFCs, Architecture Decision Records (ADRs), and sprint planning tickets. Forces any design proposal or feature spec into a 1-page human-scannable brief with explicit system boundaries, non-goals, two real alternatives, and executable completion evidence. Use whenever drafting an RFC, ADR, design doc, or breaking an epic into sprint tasks."
 ---
 
 # One-Page Anti-Workslop RFC & Task Spec

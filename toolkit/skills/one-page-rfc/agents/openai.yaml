@@ -1,0 +1,4 @@
+interface:
+  display_name: "One-Page RFC & Spec"
+  short_description: "Draft a 1-page anti-workslop RFC/ADR with non-goals, trade-offs, and WIP=1 PR stack"
+  default_prompt: "Use $one-page-rfc to turn this requirement into a 1-page RFC and stacked PR plan."

@@ -1,6 +1,6 @@
 ---
 name: progressive-zoom
-description: Prevents coding assistants from dumping 5-paragraph walls of nitty-gritty detail in chat. Forces explanations, root-cause analyses, and codebase walkthroughs into three explicit zoom levels (Zoom 1: 30-Second Big Picture, Zoom 2: Mechanism & State Flow, Zoom 3: Line-by-Line Code), pausing between levels so you never lose the mental map. Use whenever asking "how does this work", "explain this module", "why is this failing", or reviewing a multi-file change.
+description: "Prevents coding assistants from dumping 5-paragraph walls of nitty-gritty detail in chat. Forces explanations, root-cause analyses, and codebase walkthroughs into three explicit zoom levels (Zoom 1: 30-Second Big Picture, Zoom 2: Mechanism & State Flow, Zoom 3: Line-by-Line Code), pausing between levels so you never lose the mental map. Use whenever asking how does this work, explain this module, why is this failing, or reviewing a multi-file change."
 ---
 
 # Progressive Zoom: Big Picture First, Details on Demand

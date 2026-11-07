@@ -19,11 +19,17 @@ toolkit/
 │   └── anti-slop-and-bluf.mdc                         Always-on Cursor rule (.cursor/rules/anti-slop-and-bluf.mdc)
 ├── skills/
 │   ├── progressive-zoom/
-│   │   └── SKILL.md                                   3-level Progressive Zoom skill (stops 5-paragraph chat dumps)
+│   │   ├── SKILL.md                                   3-level Progressive Zoom skill (stops 5-paragraph chat dumps)
+│   │   └── agents/openai.yaml                         Codex UI & invocation metadata
+│   ├── debloat-audit/
+│   │   ├── SKILL.md                                   Post-coding De-Bloat & Silent-Failure Audit skill
+│   │   └── agents/openai.yaml                         Codex UI & invocation metadata
 │   ├── one-page-rfc/
-│   │   └── SKILL.md                                   1-page RFC/ADR & WIP=1 task slicer (stops 10-page doc workslop)
+│   │   ├── SKILL.md                                   1-page RFC/ADR & WIP=1 task slicer (stops 10-page doc workslop)
+│   │   └── agents/openai.yaml                         Codex UI & invocation metadata
 │   └── pre-push-review/
-│       └── SKILL.md                                   Local shift-left PR audit (<150 LOC, clones, silent failures, weak tests)
+│       ├── SKILL.md                                   Local shift-left PR audit (<150 LOC, clones, silent failures, weak tests)
+│       └── agents/openai.yaml                         Codex UI & invocation metadata
 ├── agents/
 │   ├── mental-map-explorer.md                         Isolated subagent that returns a 15-line Mental Map Brief
 │   └── debloat-and-silent-failure-auditor.md          Subagent that strips duplicate blocks & silent try/catch wrappers
@@ -42,21 +48,26 @@ toolkit/
    # Inside a Claude Code session:
    /output-style concise
    ```
-2. **Install the instruction file, skills, and subagents** (either in your project root or globally in `~/.claude/`):
+2. **Install the instruction file, 4 skills, and 2 subagents** (either in your project root or globally in `~/.claude/`):
    ```bash
-   # Project-level (recommended so your whole team shares the guardrails):
+   # Global User-level (applies to every repo you open):
+   mkdir -p ~/.claude/skills ~/.claude/agents
+   cp toolkit/CLAUDE.md ~/.claude/CLAUDE.md
+   cp -r toolkit/skills/* ~/.claude/skills/
+   cp toolkit/agents/*.md ~/.claude/agents/
+
+   # Or Project-level (so your whole team shares the guardrails):
    cp toolkit/CLAUDE.md ./CLAUDE.md
    mkdir -p .claude/skills .claude/agents
    cp -r toolkit/skills/* .claude/skills/
    cp toolkit/agents/*.md .claude/agents/
-
-   # Or Global User-level (applies to every repo you open):
-   cp toolkit/CLAUDE.md ~/.claude/CLAUDE.md
-   mkdir -p ~/.claude/skills ~/.claude/agents
-   cp -r toolkit/skills/* ~/.claude/skills/
-   cp toolkit/agents/*.md ~/.claude/agents/
    ```
-3. **Recommended Official Claude Code Plugins** (from `anthropics/claude-plugins-official`):
+3. **Invoke the skills in Claude Code:**
+   - `/progressive-zoom` — Explain architecture or bugs in 3 zoom levels (`30-sec map -> state flow -> code`).
+   - `/debloat-audit` — Strip duplicate 5+ line blocks, single-use wrappers, and silent `try/catch` fallbacks.
+   - `/one-page-rfc` — Draft a 1-page (`<=350-word`) RFC/ADR with a `WIP=1` stacked PR plan.
+   - `/pre-push-review` — Run a shift-left audit on `git diff` before pushing.
+4. **Recommended Official Claude Code Plugins** (from `anthropics/claude-plugins-official`):
    - **`pr-review-toolkit`:** Includes specialized local pre-PR agents (`code-simplifier`, `silent-failure-hunter`, `pr-test-analyzer`).
    - **`feature-dev`:** Enforces a 7-phase *Discovery -> Codebase Exploration -> Clarifying Questions -> Architecture Options -> Implementation* workflow so agents never jump straight into writing unapproved code.
    - **`hookify`:** Lets you create `.claude/hookify.*.local.md` pre-tool and stop hooks (for example, blocking `stop` if tests were not run).
@@ -65,14 +76,20 @@ toolkit/
 
 ### Option B: Cursor IDE & Cursor CLI
 
-1. **Install the `.mdc` project rule and `AGENTS.md`:**
+1. **Install the 4 skills globally (`~/.cursor/skills/`) and add the `.mdc` rule to your project:**
    ```bash
+   # Global skills (available across all projects in Cursor):
+   mkdir -p ~/.cursor/skills
+   cp -r toolkit/skills/* ~/.cursor/skills/
+
+   # Project-level always-on rule + AGENTS.md:
    mkdir -p .cursor/rules .cursor/skills
    cp toolkit/cursor-rules/anti-slop-and-bluf.mdc .cursor/rules/
    cp toolkit/AGENTS.md ./AGENTS.md
    cp -r toolkit/skills/* .cursor/skills/
    ```
-2. **Use Cursor's built-in visual and planning tools to protect your mental map:**
+2. **Use Cursor's built-in visual, planning, and skill commands to protect your mental map:**
+   - Type **`/progressive-zoom`**, **`/debloat-audit`**, **`/one-page-rfc`**, or **`/pre-push-review`** in Cursor chat to invoke the installed skills.
    - Press **`Shift+Tab` (Plan Mode)** for any change touching more than 2 files so you approve a short plan before code is generated.
    - Type **`/visualize`** in chat when asking how modules interact so Cursor draws a compact diagram instead of 5 paragraphs of text.
 
@@ -80,12 +97,20 @@ toolkit/
 
 ### Option C: OpenAI Codex CLI (`codex`)
 
-1. **Copy `AGENTS.md` to your repository root and set low verbosity in `~/.codex/config.toml`:**
+1. **Install the 4 skills into `~/.codex/skills/` (and `~/.agents/skills/`), copy `AGENTS.md`, and set low verbosity in `~/.codex/config.toml`:**
    ```bash
+   mkdir -p ~/.codex/skills ~/.agents/skills
+   cp toolkit/AGENTS.md ~/.codex/AGENTS.md
    cp toolkit/AGENTS.md ./AGENTS.md
-   mkdir -p ~/.codex
+   cp -r toolkit/skills/* ~/.codex/skills/
+   cp -r toolkit/skills/* ~/.agents/skills/
+
+   # If you do not already have a custom ~/.codex/config.toml:
    cp toolkit/codex-config.toml ~/.codex/config.toml
    ```
+   *(If you already have an existing `~/.codex/config.toml`, add `personality = "pragmatic"`, `model_verbosity = "low"`, `hide_agent_reasoning = true`, and `model_reasoning_summary = "concise"` at the top level.)*
+2. **Invoke the skills in Codex:**
+   - Reference `$progressive-zoom`, `$debloat-audit`, `$one-page-rfc`, or `$pre-push-review` in your prompt (or run `/skills` inside `codex`).
 
 ---
 

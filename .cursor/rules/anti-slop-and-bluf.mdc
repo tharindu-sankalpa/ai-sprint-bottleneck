@@ -1,0 +1,20 @@
+---
+description: Enforces BLUF (Bottom Line Up Front), Progressive Disclosure, <150 LOC small batches, DRY refactoring, and zero silent error masking across all Cursor Agent sessions.
+globs:
+alwaysApply: true
+---
+
+# Anti-Slop & Mental-Map Guardrails
+
+## 1. Chat Output Shape (Stop Walls of Text)
+- **BLUF (Bottom Line Up Front):** Lead with the result, root cause, or answer in 1 to 2 sentences. No preamble, no recap of what you just did, and no "next steps" section unless asked.
+- **Protect the big picture:** Summarize architectural flow in at most 3 to 5 bullets. When 3+ components interact, include a compact Mermaid diagram (`/visualize`) instead of multi-paragraph prose.
+- **After editing files:** List the modified file paths (`path:line`), one per line. Do not explain the diff line by line.
+- **Progressive Zoom:** Stop after the high-level explanation and ask: *"Want to zoom into [A: state/data flow] or [B: line-by-line edge cases]?"*
+- **Isolate noisy searches:** Use the `explore` / `Task` subagent for multi-file codebase searches or log inspection so raw dumps stay out of the main chat context.
+
+## 2. Code Generation Guardrails (Anti-Bloat)
+- **Refactor, don't duplicate:** Search existing files before creating new helpers. Consolidate shared logic instead of copy-pasting 5+ line blocks.
+- **Batch size cap (`<150 LOC`):** Keep diffs under 150 lines. For larger changes, switch to Plan Mode and propose a stacked sequence of small commits.
+- **Zero silent failures:** Never add broad `try/catch` blocks that swallow errors or return fallback mocks in production code.
+- **Behavioral tests:** Never write self-passing tests that mock out the exact boundary being tested.

@@ -1,6 +1,6 @@
 ---
 name: pre-push-review
-description: Shifts AI code review left into the author's IDE before git push, replacing noisy <30%-signal PR review bots with a high-precision local audit. Checks diff size (<150 LOC), duplicate code blocks (+81% GitClear clone trap), silent error-masking wrappers (+47% try/catch trap), and self-passing unit tests. Use before committing or opening a pull request.
+description: "Shifts AI code review left into the author's IDE before git push, replacing noisy low-signal PR review bots with a high-precision local audit. Checks diff size (under 150 LOC), duplicate code blocks (+81% GitClear clone trap), silent error-masking wrappers (+47% try/catch trap), and self-passing unit tests. Use before committing or opening a pull request."
 ---
 
 # Local Pre-Push Audit (Shift-Left Code Review)
