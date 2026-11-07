@@ -1,6 +1,6 @@
-# Nano Banana Pro Image Generation Prompts: Full-Lifecycle AI Sprint Analysis (Complete 7-Diagram Set for Medium & 3 Portrait Diagrams for LinkedIn)
+# Nano Banana Pro Image Generation Prompts: Full-Lifecycle AI Sprint Analysis (Complete 9-Diagram Set for Medium & 4 Portrait Diagrams for LinkedIn)
 
-These prompts are written for **Google Nano Banana Pro** (diffusion-based text-to-image model) following the strict 7-section `diagram` specification. Every prompt uses one unified colour palette and exact numbers from the **80-hour (`10 × 8h`) two-week sprint analysis** and published 2025 to 2026 industry studies (**Faros AI**, **LinearB**, **GitClear**, **Stanford/HBR**, **MSR '26**, **Microsoft Research**, **METR**, **Atlassian**, and **DORA**).
+These prompts are written for **Google Nano Banana Pro** (diffusion-based text-to-image model) following the strict 7-section `diagram` specification. Every prompt uses one unified colour palette and exact numbers from the **illustrative 80-hour (`10 × 8h`) two-week sprint model** (constructed by applying the stage shares and percentage changes from published 2025 to 2026 industry studies: **Faros AI**, **LinearB**, **GitClear**, **Stanford/HBR**, **MSR '26**, **Microsoft Research**, **METR**, **Atlassian**, and **DORA**).
 
 ---
 
@@ -548,7 +548,7 @@ Six stage cards in a 2x3 grid, five sequential arrows connecting 1->2->3->4->5->
 
 ## Part B: LinkedIn Carousel Portrait Diagrams (`3:4` / `4:5` Portrait, `1792 × 2400`)
 
-Set **Aspect Ratio to `3:4` (or `4:5`) Portrait** and **Resolution to `2K` (`1792 × 2400`)** in Google AI Studio / Vertex AI Studio when generating these three diagrams. Save them into `docs/diagrams/` under the exact filenames below so Claude Design can place them directly onto Pages 3, 5, and 11 of the PDF carousel.
+Set **Aspect Ratio to `3:4` (or `4:5`) Portrait** and **Resolution to `2K` (`1792 × 2400`)** in Google AI Studio / Vertex AI Studio when generating these four diagrams. Save them into `docs/diagrams/` under the exact filenames below so Claude Design can place them directly onto Pages 3, 5, 11, and 12 of the PDF carousel.
 
 ---
 

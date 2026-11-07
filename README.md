@@ -1,6 +1,6 @@
-# If We Use AI for Coding, Debugging, Design, and Code Reviews, Why Isn't Our Sprint 10× Faster?
+# We Use AI for Coding, Debugging, Design, and Docs. Why Aren't We 10× Faster?
 
-### A stage-by-stage breakdown of a two-week (`80-hour`) software engineering sprint, drawing on 2025 and 2026 industry research from GitClear, LinearB, Faros AI, Stanford, Microsoft Research, and Google DORA
+### To find a clear answer, I built an illustrative two-week (`80-hour`) sprint model from published 2025 and 2026 research telemetry (GitClear, LinearB, Faros AI, Stanford, Microsoft Research, and Google DORA)
 
 When someone asks why AI coding assistants haven't made software engineering teams 10 times faster, the standard answer goes like this: *"Developers only spend 20% to 30% of their week writing code. Even if AI makes coding 10× faster, the other 70% of the sprint stays the same."*
 
@@ -10,15 +10,15 @@ Walk past a senior engineer's desk today and look at how they actually work. The
 
 Engineers now use AI across **every single stage of the software development lifecycle (SDLC)**, including coding, debugging, testing, system design, sprint planning, code review, and CI/CD operations. So why aren't engineering teams shipping 5× or 10× faster?
 
-To answer that properly, we cannot rely on gut feelings or vendor marketing benchmarks. Instead, we can combine findings from independent industry studies published in 2025 and 2026 (including research by **GitClear**, **LinearB**, **Faros AI**, **Stanford University**, **Microsoft Research**, **METR**, and **Google Cloud DORA**) and map them onto a standard two-week (`80-hour`) engineering sprint.
+To understand why and find a real answer, I did not rely on gut feelings, vendor marketing benchmarks, or a single team's stopwatch log. Instead, I extracted the published time-allocation shares and percentage changes from credible peer-reviewed and industry telemetry studies published in 2025 and 2026 (including **GitClear**, **LinearB**, **Faros AI**, **Stanford University**, **Microsoft Research**, **METR**, and **Google Cloud DORA**) and used them to build an **illustrative two-week (`80-hour`) sprint model**.
 
-When we add up the hours across all six stages of a two-week (`80-hour`) sprint, a clear pattern emerges:
+When you map those published research percentages onto a single `80-hour` sprint to see how all six stages interact, two forces pull in opposite directions:
 
-1. **The initial speedup is real (`-35.5 hours` saved):** Using AI to write initial code, pull Kubernetes and database logs during debugging, draft design documents, summarize meetings, and run automated PR checks cuts the initial work from **`80.0 hours` down to `44.5 hours`**.
+1. **The initial speedup is real (`-35.5 hours` saved):** Using AI to write initial code, troubleshoot Kubernetes and database issues during debugging, draft design documents, summarize meetings, and run automated PR checks cuts the initial work from **`80.0 hours` down to `44.5 hours`**.
 2. **The cleanup and review rebound eats the savings (`+35.5 hours` added back):** Because AI generates output so quickly, it also produces more code duplication, unfamiliar logic that nobody on the team wrote by hand, verbose 10-page design documents that teammates must fact-check, and **twice as many pull requests that are more than twice as large**. Reviewing, debugging, and cleaning up that output adds **`+35.5 hours` right back (`44.5 h → 80.0 h`)**.
 
 ![The Three Realities of an 80-Hour Full-Stack AI Sprint](docs/diagrams/01-three-sprint-realities.jpg)
-*Figure 1: Across a two-week sprint (`10 days × 8 hours = 80.0 hours`), using AI across all six stages cuts initial drafting and debugging work to `44.5 hours` (`-35.5 h` saved), before cleaning up over-engineered code, debugging AI-introduced bugs, rewriting generic design docs, and reviewing doubled pull-request queues refill all `80.0 hours`.*
+*Figure 1 (Illustrative 80-hour model built from the published stage shares and AI speedup/rebound percentages cited below): Across a two-week sprint (`10 days × 8 hours = 80.0 hours`), using AI across all six stages cuts initial drafting and debugging work to `44.5 hours` (`-35.5 h` saved), before cleaning up over-engineered code, debugging AI-introduced bugs, rewriting generic design docs, and reviewing doubled pull-request queues refill all `80.0 hours`.*
 
 ---
 
@@ -53,7 +53,7 @@ In a real system, a 10× faster producer rarely stops at `730 ms`. The producer 
 If the producer also lacks strict validation and deduplication (pushing larger batches or invalid rows that fail and retry), the load multiplies further. Because jobs now arrive faster than the database can complete them, the backlog grows continuously. The `270 ms` saved in the producer is quickly erased by connection-pool wait time and lock contention, and end-to-end latency climbs right back to **`1,000 ms` and beyond**, getting worse the longer the overload lasts.
 
 ![Producer-Database Queue Analogy vs. AI Sprint Bottleneck](docs/diagrams/02-pipeline-bottleneck-analogy.jpg)
-*Figure 2: Speeding up the upstream producer by 10× hits a `1.37×` single-job latency ceiling when the downstream database is unchanged (middle), and loses that gain entirely when faster producers flood the database connection pool and lock queues faster than the database can drain them (right).*
+*Figure 2 (Worked systems analogy vs. illustrative 80-hour sprint model): Speeding up an upstream producer by 10× hits a `1.37×` single-job latency ceiling when the downstream database is unchanged (middle), and loses that gain entirely when faster producers flood the database connection pool and lock queues faster than the database can drain them (right).*
 
 That exact producer-consumer bottleneck is what happens inside an AI-assisted software sprint:
 
@@ -86,10 +86,10 @@ Notice how those two sets of studies already tell the story: **before AI, hands-
 
 ## 3. The 80-Hour (`10 × 8h`) Two-Week Sprint Model: Initial Speedup vs. Net Reality
 
-Let us model a standard two-week sprint (**10 working days × 8 hours = 80.0 hours per engineer**) across four scenarios:
+Let us map the published percentages onto one standard two-week sprint (**10 working days × 8 hours = 80.0 hours per engineer**) across four scenarios:
 1. **Pre-AI Baseline (`80.0 h`):** Traditional engineering workflow before AI assistants.
 2. **Naive "Coding-Only" 10× Math (`58.4 h`):** The classic thought experiment where only coding speeds up by 10× (`24.0 h → 2.4 h`) and nothing else changes (`80.0 / 58.4 = 1.37×`).
-3. **Initial AI Speedup Across All 6 Stages (`44.5 h`):** What happens when an engineer uses modern AI agents across **all six stages** of the sprint, measuring only the initial time saved while generating code, pulling logs, and drafting docs (`-35.5 hours` saved, or **`1.80×` faster** on paper before cleanup).
+3. **Initial AI Speedup Across All 6 Stages (`44.5 h`):** What happens when an engineer uses modern AI agents across **all six stages** of the sprint, measuring only the initial time saved while generating code, debugging and troubleshooting incidents, and drafting docs (`-35.5 hours` saved, or **`1.80×` faster** on paper before cleanup).
 4. **Real-World AI Sprint After Cleanup & Review (`80.0 h`):** What happens once the **cleanup, debugging, and review rebound (`+35.5 hours`)** hits each stage.
 
 | Sprint Stage (10 × 8h = 80h) | 1. Pre-AI Baseline | 2. Initial AI Speedup (All 6 Stages) | 3. Cleanup, Rework & Review Tax | 4. Net Real-World AI Sprint | Net Change vs. Pre-AI |
@@ -102,8 +102,10 @@ Let us model a standard two-week sprint (**10 working days × 8 hours = 80.0 hou
 | **6. CI/CD pipelines, deploy & prod ops** | `10.0 h` (`12.5%`) | `8.0 h` (`-2.0 h` saved) | `+5.0 h` (CI queues, `+242.7%` incidents) | **`13.0 h`** (`16.3%`) | **`+3.0 h` (`+30%`)** |
 | **Total Sprint Time / Net Output** | **`80.0 h` (`1.00×`)** | **`44.5 h` (`1.80×` paper)** | **`+35.5 h` rebound** | **`80.0 h` (`~1.21×` tasks)** | **Bottleneck shifted** |
 
+*Note: Illustrative 80-hour model constructed by applying the published stage-share percentages and AI speedup/rebound telemetry from the cited studies below, not a single team's stopwatch log.*
+
 ![Stage-by-Stage Tug-of-War: Initial AI Speedup vs. Slop & Review Tax](docs/diagrams/03-stage-by-stage-tug-of-war.jpg)
-*Figure 3: Every stage of the sprint sees genuine initial time savings from AI tools (`-35.5 hours` on the left), which is offset by a stage-specific cleanup, debugging, and review rebound (`+35.5 hours` on the right).*
+*Figure 3 (Illustrative 80-hour model): Every stage of the sprint sees genuine initial time savings from AI tools (`-35.5 hours` on the left), which is offset by a stage-specific cleanup, debugging, and review rebound (`+35.5 hours` on the right).*
 
 ---
 
@@ -160,10 +162,10 @@ Modern engineers rarely debug from a blank terminal. Using CLI agents (`Claude C
 3. Connect to staging or read-replica databases, inspect table schemas, and run SQL queries to check data state.
 4. Read CI/CD failure logs and generate unit or integration test files.
 
-Automating this log-gathering and test-setup work cuts initial investigation time nearly in half, from `12.0 hours` down to **`6.5 hours` (`-5.5 hours` saved)**. In [Microsoft Research's 2026 survey of 860 engineers](https://arxiv.org/pdf/2604.07830), **`40.6%` of infrastructure engineers** and **`19.5%` of application developers** ranked automated log and incident gathering as one of the most helpful uses of AI: *"There are lots of logistics that need to be done... if those are done by AI, it would be a great win."*
+Automating this troubleshooting, incident triage, and test-setup work cuts initial investigation time nearly in half, from `12.0 hours` down to **`6.5 hours` (`-5.5 hours` saved)**. In [Microsoft Research's 2026 survey of 860 engineers](https://arxiv.org/pdf/2604.07830), **`40.6%` of infrastructure engineers** and **`19.5%` of application developers** ranked automated incident troubleshooting and diagnostics as one of the most helpful uses of AI: *"There are lots of logistics that need to be done... if those are done by AI, it would be a great win."*
 
 #### Why It Rebounds (`+8.0 hours` from Unfamiliar Code, False Leads & Escaped Bugs)
-If AI makes pulling logs and scaffolding tests `5.5 hours` faster, why does total debugging and testing time *increase* from `12.0 hours` to **`14.5 hours` (`+2.5 hours` net)**? Three factors drive an **`+8.0 hour` rebound**:
+If AI makes initial troubleshooting and test scaffolding `5.5 hours` faster, why does total debugging and testing time *increase* from `12.0 hours` to **`14.5 hours` (`+2.5 hours` net)**? Three factors drive an **`+8.0 hour` rebound**:
 
 1. **The Missing-Mental-Map Penalty (`+3.5 hours`):**
    When you write a 300-line service by hand, you build an internal mental map of its state transitions, locking assumptions, and edge cases while typing. When an AI agent writes those 300 lines in 30 seconds, **nobody on the team has that mental map**. When a subtle race condition or data-corruption bug triggers in staging three days later, you are not debugging *your* code. You are reverse-engineering a stranger's code under incident pressure. Worse, because [GitClear's 2026 study](https://www.gitclear.com/the_ai_code_quality_maintainability_gap) found AI increases **error-masking wrappers by `+47%`** (swallowed exceptions and silent fallback values), the crash happens far downstream from where the state actually went wrong.
@@ -312,7 +314,7 @@ Why do smart engineers misjudge their own stopwatch time by `35` to `40` percent
 2. **Mechanical vs. Deep-Thinking Work:**
    A [UC Berkeley eye-tracking study highlighted by Google Cloud DORA](https://dora.dev/insights/customization-supports-developer-engagement/) found that developers gave **`19%` of their visual attention** to AI chat during mechanical tasks (writing boilerplate, installing packages), but **less than `1%` visual attention** during complex code understanding tasks. When deep comprehension was required, engineers chose to read and reason manually to stay in control.
 3. **Bounded Delegation:**
-   In [Microsoft Research's 2026 paper](https://arxiv.org/pdf/2604.07830), the authors call this boundary **"bounded delegation"**: developers want AI to handle the *setup and legwork surrounding their craft* (collecting logs, scaffolding tests, formatting docs), while keeping human ownership over *architectural judgment, design trade-offs, and production sign-off*.
+   In [Microsoft Research's 2026 paper](https://arxiv.org/pdf/2604.07830), the authors call this boundary **"bounded delegation"**: developers want AI to handle the *setup and legwork surrounding their craft* (initial incident diagnostics, scaffolding tests, formatting docs), while keeping human ownership over *architectural judgment, design trade-offs, and production sign-off*.
 
 ---
 
@@ -384,9 +386,10 @@ To make these guardrails immediately actionable, this repository includes a comp
 | [**`toolkit/GEMINI.md`**](toolkit/GEMINI.md) | Google Gemini CLI & Code Assist (`./GEMINI.md`) | Concise mental-map-first responses, refactor-over-duplicate rules, and small-batch planning |
 | [**`toolkit/cursor-rules/anti-slop-and-bluf.mdc`**](toolkit/cursor-rules/anti-slop-and-bluf.mdc) | Cursor IDE (`.cursor/rules/anti-slop-and-bluf.mdc`) | Always-on `.mdc` rule enforcing BLUF, `/visualize` diagrams for 3+ modules, and post-edit path-only output |
 | [**`toolkit/codex-config.toml`**](toolkit/codex-config.toml) | OpenAI Codex CLI (`~/.codex/config.toml`) | Sets `model_verbosity = "low"` and `hide_agent_reasoning = true` to eliminate terminal chatter |
-| [**`toolkit/skills/progressive-zoom/SKILL.md`**](toolkit/skills/progressive-zoom/SKILL.md) | `.claude/skills/` or `.cursor/skills/` | 3-level **Progressive Zoom** skill (`Zoom 1: 30-Sec Map` -> `Zoom 2: State Flow` -> `Zoom 3: Code`) |
-| [**`toolkit/skills/one-page-rfc/SKILL.md`**](toolkit/skills/one-page-rfc/SKILL.md) | `.claude/skills/` or `.cursor/skills/` | Caps RFCs/ADRs at 1 page (`<=350 words`) with Non-Goals, Trade-off table, and `WIP=1` stacked PR plan |
-| [**`toolkit/skills/pre-push-review/SKILL.md`**](toolkit/skills/pre-push-review/SKILL.md) | `.claude/skills/` or `.cursor/skills/` | Shift-left IDE pre-push check for `<150 LOC`, duplicate blocks, silent failures, and self-passing tests |
+| [**`toolkit/skills/progressive-zoom/SKILL.md`**](toolkit/skills/progressive-zoom/SKILL.md) | `.claude/skills/`, `.codex/skills/`, `.cursor/skills/` | 3-level **Progressive Zoom** skill (`Zoom 1: 30-Sec Map` -> `Zoom 2: State Flow` -> `Zoom 3: Code`) |
+| [**`toolkit/skills/debloat-audit/SKILL.md`**](toolkit/skills/debloat-audit/SKILL.md) | `.claude/skills/`, `.codex/skills/`, `.cursor/skills/` | Post-coding **De-Bloat & Silent-Failure Audit** (`-70%` refactor gap, `+81%` clones, `+47%` `try/catch` traps) |
+| [**`toolkit/skills/one-page-rfc/SKILL.md`**](toolkit/skills/one-page-rfc/SKILL.md) | `.claude/skills/`, `.codex/skills/`, `.cursor/skills/` | Caps RFCs/ADRs at 1 page (`<=350 words`) with Non-Goals, Trade-off table, and `WIP=1` stacked PR plan |
+| [**`toolkit/skills/pre-push-review/SKILL.md`**](toolkit/skills/pre-push-review/SKILL.md) | `.claude/skills/`, `.codex/skills/`, `.cursor/skills/` | Shift-left IDE pre-push check for `<150 LOC`, duplicate blocks, silent failures, and self-passing tests |
 | [**`toolkit/agents/mental-map-explorer.md`**](toolkit/agents/mental-map-explorer.md) | `.claude/agents/mental-map-explorer.md` | Isolated exploration subagent with a hard **15-line Mental Map Brief** return contract |
 | [**`toolkit/agents/debloat-and-silent-failure-auditor.md`**](toolkit/agents/debloat-and-silent-failure-auditor.md) | `.claude/agents/debloat-and-silent-failure-auditor.md` | Post-coding subagent that removes duplicate blocks, dead wrappers, and silent `try/catch` fallbacks |
 | [**`toolkit/templates/stage-by-stage-prompts.md`**](toolkit/templates/stage-by-stage-prompts.md) | Any AI assistant / CI pipeline | Copy-paste prompts and CI gates (`jscpd`, mutation testing, stacked PRs) for all 6 sprint stages |
@@ -403,7 +406,52 @@ Here is the core **Response Shape & Anti-Chat-Slop** block from [`toolkit/CLAUDE
 - **Delegate noisy searches to subagents:** When searching across >3 files or inspecting long K8s/CI/SQL logs, use an isolated subagent and return only a 3-sentence summary + top 5 `file:line` entry points.
 ```
 
-> For one-command installation into Claude Code, Cursor, OpenAI Codex CLI, and Gemini CLI, see [**`toolkit/README.md`**](toolkit/README.md).
+#### One-Command Global & Project Installation (Claude Code, OpenAI Codex & Cursor)
+
+Each skill in [`toolkit/skills/`](toolkit/README.md) includes both a standard `SKILL.md` (used by **Claude Code**, **Cursor**, and **OpenAI Codex**) and an `agents/openai.yaml` metadata manifest for **Codex** discovery. Run the commands below from the root of this repository to install the skills, subagents, and low-verbosity rules across all three tools:
+
+- **1. Install in Claude Code (Global `~/.claude/` + Project `.claude/`):**
+  ```bash
+  # Install global instructions, all 4 skills, and 2 isolated subagents:
+  mkdir -p ~/.claude/skills ~/.claude/agents
+  cp toolkit/CLAUDE.md ~/.claude/CLAUDE.md
+  cp -r toolkit/skills/* ~/.claude/skills/
+  cp toolkit/agents/*.md ~/.claude/agents/
+
+  # Inside any Claude Code session, also enable the built-in concise output style:
+  # /output-style concise
+  ```
+  - **How to invoke in Claude Code:** Type `/progressive-zoom`, `/debloat-audit`, `/one-page-rfc`, or `/pre-push-review` in chat (or let Claude trigger them automatically based on your prompt).
+
+- **2. Install in OpenAI Codex CLI (Global `~/.codex/` & `~/.agents/`):**
+  ```bash
+  # Install global AGENTS.md instructions and all 4 skills (with agents/openai.yaml):
+  mkdir -p ~/.codex/skills ~/.agents/skills
+  cp toolkit/AGENTS.md ~/.codex/AGENTS.md
+  cp -r toolkit/skills/* ~/.codex/skills/
+  cp -r toolkit/skills/* ~/.agents/skills/
+
+  # Add low-verbosity settings to ~/.codex/config.toml (or copy toolkit/codex-config.toml):
+  # personality = "pragmatic"
+  # model_verbosity = "low"
+  # hide_agent_reasoning = true
+  ```
+  - **How to invoke in Codex:** Reference any skill with `$progressive-zoom`, `$debloat-audit`, `$one-page-rfc`, or `$pre-push-review` (or run `/skills` inside `codex` to browse them).
+
+- **3. Install in Cursor IDE (Global `~/.cursor/skills/` + Project `.cursor/rules/`):**
+  ```bash
+  # Install all 4 skills globally across all Cursor workspaces:
+  mkdir -p ~/.cursor/skills
+  cp -r toolkit/skills/* ~/.cursor/skills/
+
+  # Install the always-on .mdc rule and AGENTS.md in your project repository:
+  mkdir -p .cursor/rules
+  cp toolkit/cursor-rules/anti-slop-and-bluf.mdc .cursor/rules/
+  cp toolkit/AGENTS.md ./AGENTS.md
+  ```
+  - **How to invoke in Cursor:** Type `/progressive-zoom`, `/debloat-audit`, `/one-page-rfc`, or `/pre-push-review` in Cursor Agent chat, use `/visualize` for architecture diagrams, and press `Shift+Tab` for Plan Mode before multi-file edits.
+
+> For additional per-stage prompt templates and CI gate examples (`jscpd`, `Stryker` mutation checks, `gh stack`), see [**`toolkit/README.md`**](toolkit/README.md) and [**`toolkit/templates/stage-by-stage-prompts.md`**](toolkit/templates/stage-by-stage-prompts.md).
 
 ---
 

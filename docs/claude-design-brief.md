@@ -2,18 +2,22 @@
 
 A document post on LinkedIn is a PDF that the feed renders as a swipeable carousel. This file is the complete brief for that PDF: how to produce it, the visual style, the core narrative, the companion LinkedIn post copy, and the exact text, tables, diagrams, and numbers of every page. Every fact below comes from published 2025 and 2026 software engineering studies (**Faros AI**, **LinearB**, **GitClear**, **Google Cloud DORA**, **Harvard Business Review / Stanford / BetterUp**, **MSR '26 / arXiv**, **Atlassian**, **Microsoft Research**, and **METR**) mapped onto an **80-hour (`10 days × 8 hours`) two-week engineering sprint**. Nothing in the pages should be changed, shortened, or invented by the design tool.
 
+> **Where the numbers in this brief come from:**
+> - **Measured in published studies (real data):** All percentages, PR sizes, wait times, and incident rates (`30% → 10%` coding share, `+81%` duplicate blocks, `1 hr 56 min` per "workslop" doc, `+98%` more PRs at `+154%` size, `+242.7%` incidents per PR) come directly from the published 2025 to 2026 studies cited on each slide.
+> - **Illustrative 80-hour sprint math (`-35.5 h` saved, `+35.5 h` added back):** To show all six stages on one timeline, those published percentages are converted into hours across a single hypothetical two-week (`80-hour`) sprint. Both Page 1 (Cover) and Page 3 state this directly on the slide so readers never mistake the hour totals for one team's stopwatch log.
+
 ---
 
 ## How to produce it
 
 1. **Generate the four `3:4` portrait diagrams** (`1792 × 2400`) from `docs/nano-banana-prompts.md` (Part B) and save them into `docs/diagrams/`:
-   - `docs/diagrams/li-01-sprint-tug-of-war.jpg` (placed on **Page 3** instead of a dense 35-cell spreadsheet table)
-   - `docs/diagrams/li-02-bloat-and-mental-map.jpg` (placed on **Page 5** to visualize the Stage 1 → Stage 2 rebound)
-   - `docs/diagrams/li-03-verification-funnel.jpg` (placed on **Page 11** to visualize the Verification Funnel & Playbook)
-   - `docs/diagrams/li-04-chat-zoom-and-stage-gates.jpg` (placed on **Page 12** to visualize the In-Chat Progressive Zoom & 6-Stage Mitigation Toolkit)
+   - `docs/diagrams/li-01-sprint-tug-of-war.jpg` (optional; **Page 3** now uses the six-stage hours table below instead of this diagram, so it is only needed if you prefer the visual)
+   - `docs/diagrams/li-02-bloat-and-mental-map.jpg` (article-only; **Page 5** now uses a native two-sided bar chart instead, see its spec below)
+   - `docs/diagrams/li-03-verification-funnel.jpg` (article-only; **Page 11** now uses a native funnel diagram, see its spec below)
+   - `docs/diagrams/li-04-chat-zoom-and-stage-gates.jpg` (article-only; **Page 12** now uses a native two-part diagram, see its spec below)
 2. Give **Claude Design** (or your design tool) this file in full plus those four portrait diagram images and say:
 
-> *"Read this brief in full and follow it exactly; add nothing that is not in it; place the four portrait diagrams on Pages 3, 5, 11, and 12 unaltered; run its closing checklist and report each item."*
+> *"Read this brief in full and follow it exactly; add nothing that is not in it; build the native diagrams on Pages 5, 11, and 12 exactly as specified; run its closing checklist and report each item."*
 
 3. **Verify every page against this brief:** numbers, units, percentages, stage names, and arrow directions. The tool must not add or reword facts.
 4. **Export format:** PDF, **13 pages**, **4:5 portrait** (`1080 × 1350 px`, or `2160 × 2700 px` at 2× retina; also compatible with A4 portrait `210 × 297 mm` if exported as a standalone document). Keep 4:5 portrait as the primary feed choice so every slide fills the LinkedIn mobile viewport without letterboxing.
@@ -28,6 +32,7 @@ A document post on LinkedIn is a PDF that the feed renders as a swipeable carous
 - **Show both the initial AI time savings and the cleanup/review rebound in every stage:** Every stage gets a real **initial AI speedup** (`-35.5 hours` saved across an 80-hour sprint), AND every stage gets hit by a **cleanup, debugging, and review rebound** (`+35.5 hours` added back) from over-engineered code, `+81%` code duplication, `1 hr 56 min` per "workslop" design doc/slide deck, noisy review bots (`<30%` signal), and `+98%` more / `+154%` larger PRs.
 - **Use the Pipeline Bottleneck Rule (Theory of Constraints) and the `1,000 ms` API endpoint / microservice pipeline analogy** on Page 2.
 - **Always attribute industry numbers to the published research that measured them** (GitClear, LinearB, Faros AI, Stanford/BetterUp, Microsoft Research, DORA, METR) so the reader knows these are published third-party studies.
+- **Label the 80-hour sprint hours as an illustrative model, not a measured dataset.** The cover's source row says the `-35.5 h` / `+35.5 h` figures are backed by published research, and Page 3 carries the explicit footnote that the hours are one 80-hour sprint split using stage-share percentages and speed-up / rebound rates extracted from the cited studies' telemetry, not one team's measured hours. Do not drop or soften that footnote.
 - **Never join sibling pipeline stages with double-headed arrows.** Flow is strictly unidirectional with a single filled arrowhead at the destination card.
 - **Every hour in the 2-week sprint must sum to exactly `80.0 hours` (`10 × 8h`)** in both the Pre-AI Baseline (`80.0 h`) and the Real-World AI Sprint (`80.0 h`), and **`44.5 hours`** in the Initial AI Speedup scenario before cleanup and review.
 
@@ -45,7 +50,7 @@ A document post on LinkedIn is a PDF that the feed renders as a swipeable carous
 >
 > Today’s engineers don't just use AI to autocomplete functions. They use coding agents to run `kubectl` against Kubernetes pods, port-forward services, inspect CI/CD failure logs, and run SQL queries to debug. They use AI to draft system design RFCs, generate sprint slide decks, summarize meeting minutes, and run automated PR review bots.
 >
-> Across an **80-hour sprint**, using AI in all six stages saves **`35.5 hours` of initial drafting and log-gathering time** (cutting the initial work from `80.0 hours` down to `44.5 hours`, or **1.80× faster** on paper).
+> Across an **80-hour sprint**, using AI in all six stages saves **`35.5 hours` of initial coding, troubleshooting, and drafting time** (cutting the initial work from `80.0 hours` down to `44.5 hours`, or **1.80× faster** on paper).
 >
 > **So where do those saved 35.5 hours go? They get eaten by the Cleanup, Debugging & Review Tax (`+35.5 hours`):**
 >
@@ -81,7 +86,7 @@ Design a 13-page document for a LinkedIn document post (PDF carousel). Pages are
   - Slate `#334155` / `#475569` (sprint planning, meetings, CI/CD & ops) with pale tint `#F8FAFC`
   - Red `#B91C1C` (over-engineering, code duplication, bugs & prod incidents) with pale tint `#FFF1F2`
 - **Diagram & Table Cards:** White or pale-tint fill, solid `3 px` outline in `#334155`, `12 px` corner radius, `6 px` coloured left accent bar. Arrows are `3 px` with a single filled triangular head at the destination only. Never use double-headed arrows.
-- **Portrait Nano Banana Pro Diagrams (Pages 3, 5, 11, and 12):** Place the `3:4` portrait images (`docs/diagrams/li-01-sprint-tug-of-war.jpg`, `docs/diagrams/li-02-bloat-and-mental-map.jpg`, `docs/diagrams/li-03-verification-funnel.jpg`, and `docs/diagrams/li-04-chat-zoom-and-stage-gates.jpg`) unaltered and centred at full content width in the middle zone between the headline and the bottom footnote, without cropping, stretching, or recolouring.
+- **Native diagrams (Pages 5, 11, and 12):** Build these in the design tool from the per-page specs below (HTML/SVG, palette colours, Inter + JetBrains Mono) rather than placing the article's Nano Banana JPEGs, whose labels fall below 12 px at slide width. The `docs/diagrams/li-0N` images remain the article's figures only.
 - **Cover Illustration (Page 1 only):** One vector diagram in the middle two-fifths of Page 1 showing six sprint stage discs on the left (Coding, Debugging/K8s, Design, Planning/Docs, Review Bots, CI/CD) feeding high-velocity blue streams (`-35.5h Initial AI Speedup`) into a central amber review and cleanup funnel (`+35.5h Cleanup, Debugging & Review Tax`, marked with a person-and-check icon), exiting as a modest `1.21x Net Delivery` arrow on the right over a faint dot grid. No stock photos, robots, or brains.
 
 ---
@@ -92,16 +97,18 @@ Kicker: `FULL-LIFECYCLE AI · THE REVIEW & CLEANUP BOTTLENECK`
 
 Headline: `We use AI for coding, debugging, design, and docs. Why aren't we 10x faster?` (highlight "Why aren't we 10x faster?" in indigo `#4F46E5`)
 
-Standfirst, one paragraph in secondary text: `Engineers now use AI across every stage of a 2-week (80-hour) sprint, from writing code and running kubectl/SQL checks to drafting RFCs, meeting notes, and PR reviews. Across the sprint, AI saves 35.5 hours of initial drafting and log-gathering time, and then adds 35.5 hours of code cleanup, debugging, and PR review work right back.`
+Standfirst, one paragraph in secondary text: `To find a clear answer, I built an illustrative 2-week (80-hour) sprint model from published 2025 to 2026 research telemetry rather than one team's stopwatch. When you apply those studies' percentages across all 6 stages, AI saves 35.5 hours of initial coding, troubleshooting, and drafting time, and then adds 35.5 hours of code cleanup, debugging, and PR review work right back.`
+
+Hero illustration band (native, 204 px tall, full content width, between the standfirst and the numbered points): an indigo panel `AI IN ALL SIX SPRINT STAGES` holding six colour-dotted pills (`Coding`, `Debugging/K8s`, `Design`, `Planning/Docs`, `PR review`, `CI/CD`) → blue arrow `-35.5h saved drafting` → amber gate `Human cleanup, debugging & review · +35.5h back` with a reviewer icon → indigo arrow `net per 80h sprint` → solid indigo result block `1.21× net delivery, not 10×`. Single arrowheads, left to right.
 
 Four numbered points, large numerals in indigo `#4F46E5`:
 
 1. **AI is used across the whole sprint, not just coding.** Agents write code, inspect pods and databases, draft designs, summarize meetings, and comment on PRs.
-2. **Initial time savings are real: -35.5 hours per 80-hour sprint.** Writing code, pulling logs, and drafting docs drops from 80.0 hours to 44.5 hours (1.80× faster before cleanup).
+2. **Initial time savings are real: -35.5 hours per 80-hour sprint.** Writing code, troubleshooting issues, and drafting docs drops from 80.0 hours to 44.5 hours (1.80× faster before cleanup).
 3. **Cleanup, debugging, and review add +35.5 hours back.** Cleaning up duplicated AI code (+81% clones), rewriting generic 10-page AI design docs (1h 56m lost per doc), and reviewing 2× more PRs refill the sprint.
 4. **The bottleneck moved from writing to reviewing.** A team cannot ship faster than humans can understand, review, and trust what AI generated.
 
-Published research cited row: `Studies cited: GitClear · LinearB · Faros AI · Stanford / HBR · Microsoft Research · Google DORA`
+Published research cited row: `Illustrative 80h model built from published 2025 to 2026 research telemetry (not one team's stopwatch): GitClear · LinearB · Faros AI · Stanford / HBR · Microsoft Research · Google DORA`
 
 Footer line in indigo italic: `The 80-hour AI sprint broken down stage by stage. Swipe →`
 
@@ -131,7 +138,7 @@ Three bullets:
 - **Queues form in two places, and throughput drops.** Jobs wait for a free connection when the pool saturates, then contend for row locks inside the database. If batches are also larger or fail validation, the overload multiplies.
 - **In an AI sprint, AI is the producer and humans are a shrinking database pool.** AI generates far more PRs with larger diffs, duplicated code, and noisy bot comments, while many companies use perceived AI speedups to cut engineering headcount. That is like shrinking your DB connection pool while doubling write traffic: **every claim and layoff figure is backed by published research and exact numbers in the slides ahead.**
 
-Footnote, secondary text: `When arrival rate exceeds service rate at the bottleneck, queue wait time erases upstream speedups and keeps growing.`
+Footnote, secondary text: `Worked systems analogy (1,000 ms -> 730 ms -> 1,000 ms+): when arrival rate exceeds service rate at the bottleneck, queue wait time erases upstream speedups and keeps growing.`
 
 ---
 
@@ -141,15 +148,26 @@ Kicker: `THE 80-HOUR SPRINT · THREE REALITIES`
 
 Headline: `AI saves 35.5 hours of initial work, then adds 35.5 hours of cleanup and review` (highlight "saves 35.5 hours" in blue `#2563EB` and "adds 35.5 hours" in amber `#B45309`)
 
-Portrait Diagram (placed full width in the center zone, replacing the dense 35-cell spreadsheet table):
-`docs/diagrams/li-01-sprint-tug-of-war.jpg`
+Six-stage hours table (white card, slate border, replacing the earlier tug-of-war diagram). Five columns: `Sprint stage` · `Pre-AI baseline` · `AI saves` (blue `#2563EB`) · `Rebound tax` (amber `#B45309`) · `Net after AI` (red `#B91C1C` where the stage ends slower than pre-AI, teal `#0F766E` where faster, slate where flat). Hours in JetBrains Mono. All four hour figures must be present for every stage:
 
-Two concise takeaway lines below the diagram:
+| Sprint stage | Pre-AI baseline | AI saves | Rebound tax | Net after AI |
+|---|---|---|---|---|
+| 1 · Hands-on coding | `24.0 h` | `-19.0 h` | `+3.0 h` | `8.0 h` |
+| 2 · Debugging, K8s/DB & testing | `12.0 h` | `-5.5 h` | `+8.0 h` | `14.5 h` |
+| 3 · System design & RFCs | `12.0 h` | `-3.5 h` | `+5.5 h` | `14.0 h` |
+| 4 · Meetings, slides & planning | `12.0 h` | `-3.5 h` | `+3.5 h` | `12.0 h` |
+| 5 · PR code review & bots | `10.0 h` | `-2.0 h` | `+10.5 h` | `18.5 h` |
+| 6 · CI/CD & prod ops | `10.0 h` | `-2.0 h` | `+5.0 h` | `13.0 h` |
+| **Full 10-day sprint** (dark `#1E293B` row) | **`80.0 h`** | **`-35.5 h`** | **`+35.5 h`** | **`80.0 h`** |
+
+Two concise takeaway lines below the table:
 
 - **Pre-AI studies (Sonar 2019, Stripe) measured `~30%` coding (`24h`); 2025 to 2026 studies (Atlassian, Microsoft) show coding shrank to `~10 to 16%` (`8h`):** AI genuinely cut coding time by two-thirds, yet the 80-hour sprint stayed completely full.
 - **Where the saved `35.5 hours` went:** Into code cleanup (`+3h`), debugging unfamiliar AI bugs (`+8h`), rewriting bloated docs (`+9h`), and 2× PR review queues (`+10.5h`, or rubber-stamping PRs that then break in production).
 
 Footnote, secondary text: `Net result: +21% to +34% more tasks completed (1.21x to 1.34x), while PR review + debugging jumps from 22.0h (27.5%) to 33.0h (41.3%).`
+
+Second footnote, secondary italic text (required, never drop it): `Illustrative model: one 80-hour (10 × 8 h) sprint split built by applying the published stage-share percentages and AI speedup/rebound rates from the cited studies, not one team's stopwatch log.`
 
 ---
 
@@ -185,10 +203,16 @@ Kicker: `STAGE 2 · DEBUGGING, K8S/DB INVESTIGATION & TESTING (12.0h → 14.5h)`
 
 Headline: `Agents gather pod logs and SQL fast, but AI code creates 54% more bugs` (highlight "54% more bugs" in red `#B91C1C`)
 
-Portrait Diagram (placed full width in the center zone, showing how Stage 1 AI Write-Only Code Bloat flows into Stage 2 Debugging & Testing):
-`docs/diagrams/li-02-bloat-and-mental-map.jpg`
+Native diagram (built in the design tool, full content width, replaces the earlier `li-02` image whose labels were unreadable at slide size):
 
-Bottom summary bar: `12.0 h baseline - 5.5 h agent log/SQL gathering + 8.0 h debugging unfamiliar AI bugs = 14.5 h net (+2.5 h increase).`
+- **Upstream cause band** (red `#B91C1C` border, `#FFF1F2` fill), title `UPSTREAM CAUSE · STAGE 1 WRITE-ONLY AI CODE BLOAT`, three stat chips: `+81%` duplicated code blocks · `−70%` refactoring & moved code · `+47%` error-masking guards; small source line `Source: GitClear & LinearB repository telemetry`.
+- **Single downward arrow** from the band into the chart, labelled `Unfamiliar, error-masked code reaches staging & production`.
+- **Two-sided bar chart** (white card, slate `#334155` border) with a central axis and `1 h` gridlines at 100 px per hour. Header: `AGENT SPEEDUPS −5.5 h` (blue `#2563EB`, left) and `+8.0 h DEBUGGING REBOUND` (amber `#B45309`, right). Three rows, blue bars growing left and amber bars growing right:
+  1. `K8s & pod agent` (kubectl logs, exec & port-forward) `−2.5 h` ↔ `Missing-mental-map penalty` (reverse-engineering unfamiliar AI code live) `+3.5 h`
+  2. `Postgres SQL agent` (diagnostic SQL & CI log checks) `−1.5 h` ↔ `Confident false theories` (plausible but wrong root-cause stories) `+2.5 h`
+  3. `AI test generator` (generates unit test files) `−1.5 h` ↔ `Flawed AI tests` (tests pass on buggy code, `+54%` bugs) `+2.0 h`
+
+Bottom summary bar: `12.0 h baseline - 5.5 h agent troubleshooting & diagnostics + 8.0 h debugging unfamiliar AI bugs = 14.5 h net (+2.5 h increase).`
 
 Footnote, secondary text: `Published sources: Microsoft Research & OSU "To Copilot and Beyond" (2026); Faros AI Report (2026); Google Cloud DORA (2025).`
 
@@ -289,7 +313,7 @@ Three bullets:
 
 - **Generating feels fast; reviewing and fixing feels invisible.** Watching an agent produce a feature, a design doc, or a SQL query in seconds feels effortless, so our brains remember the 5-minute prompt rather than the 90 minutes spent fixing subtle bugs later.
 - **UC Berkeley eye-tracking study (DORA 2025):** Developers used AI heavily on mechanical boilerplate (`19%` visual attention) but ignored it when understanding complex code (`<1%` attention) to stay in control.
-- **Bounded Delegation (Microsoft Research 2026):** Across 860 developers surveyed, engineers wanted AI to automate *log gathering and setup work*, never final architectural decisions or production sign-off.
+- **Bounded Delegation (Microsoft Research 2026):** Across 860 developers surveyed, engineers wanted AI to automate *incident diagnostics and setup work*, never final architectural decisions or production sign-off.
 
 Footnote, secondary text: `Published sources: METR RCT (July 2025 & Feb 2026 update); DORA / UC Berkeley Study (2025); Microsoft Research (2026).`
 
@@ -301,8 +325,11 @@ Kicker: `THE ENGINEERING PLAYBOOK · KEEPING THE SAVED HOURS`
 
 Headline: `To keep the 35.5 hours AI saves, put strict guardrails on chat, code, and PRs` (highlight "strict guardrails" in indigo `#4F46E5`)
 
-Portrait Diagram (placed full width in the center zone, showing the 4 AI generators feeding into the Human Review Gate and splitting into the Slop Flood vs. the 5 Engineering Guardrails):
-`docs/diagrams/li-03-verification-funnel.jpg`
+Native funnel diagram (full content width, replaces the earlier `li-03` image):
+
+- **Band 1** (indigo `#4F46E5` border, `#EEF2FF` fill), title `1 · FULL-LIFECYCLE AI GENERATION · −35.5 h INITIALLY SAVED`, four chips with coloured top bars: `AI coding agents −19.0 h` (blue; 2× PRs · +154% diffs · +81% clones), `K8s & SQL checks −5.5 h` (violet; fast logs · confident false leads), `AI RFC & specs −3.5 h` (teal; 10-page docs · generic patterns), `Notes & PR bots −7.5 h` (slate; auto-tickets · <30% bot signal).
+- **Funnel** (light indigo trapezoid labelled `High-volume AI output`) narrowing into **Gate 2** (amber `#B45309` border, `#FFFBEB` fill): `2 · Human review & verification gate`, subtitle `The sprint bottleneck: every line still needs human accountability`.
+- **Split** into two single-arrowhead branches: red `No guardrails` → **Path A · Undisciplined slop** (red card): `+91% to +441%` PR review wait · `1 h 56 m` lost per workslop doc · `+242.7%` prod incidents per PR · `31%` of PRs merge with no human review; red pill `All 35.5 h lost · DORA: flat`. Teal `Bounded delegation` → **Path B · Five guardrails** (teal `#0F766E` card), numbered: 1-page human specs (zero raw workslop); hard PR cap `<150 LOC` + code-reuse rules; shift AI review left to the IDE (pre-push); read-only K8s/SQL summaries + human fix; track review wait, churn & incidents per PR; teal pill `35.5 h kept · 1.80× stays real`.
 
 Two takeaway bullets below the diagram:
 
@@ -319,8 +346,11 @@ Kicker: `OPEN-SOURCE TOOLKIT · CLAUDE.MD · AGENTS.MD · SKILLS`
 
 Headline: `Stop 5-paragraph chat dumps first, then gate every stage of the sprint` (highlight "Stop 5-paragraph chat dumps" in indigo `#4F46E5`)
 
-Portrait Diagram (placed full width in the center zone, showing Part 1: In-Chat Subagent Isolation + 3-Level Progressive Zoom, and Part 2: The 6 Stage-by-Stage Sprint Gates):
-`docs/diagrams/li-04-chat-zoom-and-stage-gates.jpg`
+Native two-part diagram (full content width, replaces the earlier `li-04` image):
+
+- **Part 1 · Stop in-chat workslop (rule files + skills)** (indigo band): three cards joined by single-arrowhead arrows: `1 · Isolated explorer subagent` (searches 15+ files & logs in its own context, returns a 15-line brief) → `2 · Zoom level 1: 30-second mental map` (1-sentence BLUF + 5-node flow + top 3 file:line refs, then stops) → `3 · Zoom levels 2 & 3, on request only` (state transitions, edge cases & code only when the developer asks).
+- **Connector**: teal down arrow labelled `Clean mental map feeds disciplined stage gates`.
+- **Part 2 · Stage-by-stage sprint gates · keeps the 35.5 h saved** (teal band): 3 × 2 grid of stage cards with coloured left bars: `1 · Coding` (`jscpd` + de-bloat audit: block new clones & silent catch), `2 · Debug / Test` (`Stryker` mutants: read-only logs + kill self-passing tests), `3 · Design` (1-page RFC skill: ≤350 words + `<details>` appendix), `4 · Planning` (`WIP = 1` rule: 1 active task + completion command), `5 · Review` (Stacked PRs `<150 LOC`: gh stack / Graphite + IDE pre-push check), `6 · CI / Ops` (scoped merge queue: batched CI + canary auto-rollback).
 
 Two concise takeaway lines below the diagram:
 
@@ -339,7 +369,7 @@ Headline: `AI made writing cheap. Reviewing and verifying is now the bottleneck.
 
 Three summary cards stacked:
 
-- Badge `-35.5 h` (blue `#2563EB` bar): **Initial AI time savings are real across all 6 stages.** Coding (`-19h`), K8s/SQL log gathering (`-5.5h`), RFC drafting (`-3.5h`), meetings/slides (`-3.5h`), review bots (`-2h`), and CI/CD (`-2h`) cut initial work from `80h` to `44.5h`.
+- Badge `-35.5 h` (blue `#2563EB` bar): **Initial AI time savings are real across all 6 stages.** Coding (`-19h`), K8s/DB troubleshooting (`-5.5h`), RFC drafting (`-3.5h`), meetings/slides (`-3.5h`), review bots (`-2h`), and CI/CD (`-2h`) cut initial work from `80h` to `44.5h`.
 - Badge `+35.5 h` (amber `#B45309` bar): **Without guardrails, cleanup and review eat every saved hour.** Cleaning up duplicated code (`+3h`), debugging AI bugs (`+8h`), rewriting bloated design docs (`+5.5h`), parallel WIP (`+3.5h`), 2× PR review queues (`+10.5h`), and prod incidents (`+5h`) refill the `80h` sprint.
 - Badge `The Fix` (indigo `#4F46E5` bar): **Don't ask "How fast can AI write this?"** Ask: **"How fast can another engineer review, verify, and debug what AI just produced?"**
 
@@ -356,13 +386,13 @@ Published Research Citations (listed cleanly at bottom):
 ## Companion LinkedIn Post Text (Ready to Copy & Paste)
 
 ```text
-"Wait, we don't just use AI for writing code anymore. We use it to debug Kubernetes pods, run SQL queries, draft design docs, write meeting notes, and review PRs. Shouldn't the whole sprint be 10× faster now?"
+We use AI for coding, debugging, design, and docs. Why aren't we 10× faster?
 
-It is a fair question. So I mapped the findings from 2025 and 2026 industry studies (GitClear, LinearB, Faros AI, Stanford, Microsoft Research, and Google DORA) onto all 6 stages of a standard 2-week sprint (10 days × 8 hours = 80 hours) to see what actually speeds up and what slows down.
+To understand why and find a real answer, I built an illustrative 80-hour sprint model (10 days × 8 hours) from published 2025 and 2026 research telemetry (GitClear, LinearB, Faros AI, Stanford, Microsoft Research, and Google DORA)—rather than relying on a single team's stopwatch log—by extracting the stage shares and percentage changes measured across those studies.
 
-Here is what the numbers show:
+Here is what happens when you map those research percentages onto one 80-hour sprint:
 
-When you use AI across every stage of an 80-hour sprint, it genuinely saves ~35.5 hours of initial coding, log-gathering, and drafting time (80h → 44.5h).
+When you use AI across every stage of an 80-hour sprint, it genuinely saves ~35.5 hours of initial coding, troubleshooting, and drafting time (80h → 44.5h).
 
 Then, cleaning up, debugging, and reviewing that AI output adds +35.5 hours right back:
 
@@ -393,12 +423,12 @@ Swipe through the 13-page breakdown below for the stage-by-stage 80-hour sprint 
 
 ## Closing Checklist for the Design Tool
 
-- [ ] **13 pages total**, 4:5 portrait (`1080 × 1350 px` or `2160 × 2700 px`), numbered `1/13` through `13/13`.
-- [ ] **Page 1** includes the 6-into-1 review funnel vector illustration, 4 numbered points, and the "Studies cited:" source row.
+- [ ] **13 pages total**, 4:5 portrait (`1080 × 1350 px` or `2160 × 2700 px`), with no page counters (the pages are exported as standalone images).
+- [ ] **Page 1** includes the 6-into-1 review funnel vector illustration, 4 numbered points, and the source row stating the `-35.5 h` / `+35.5 h` figures are backed by published research.
 - [ ] **Page 2** uses the `1,000 ms` producer-to-database pipeline analogy.
-- [ ] **Page 3** places the `3:4` portrait diagram `docs/diagrams/li-01-sprint-tug-of-war.jpg` unaltered at full content width instead of a dense 35-cell spreadsheet table.
-- [ ] **Page 5** places the `3:4` portrait diagram `docs/diagrams/li-02-bloat-and-mental-map.jpg` unaltered at full content width above the dark net-balance summary bar.
-- [ ] **Page 11** places the `3:4` portrait diagram `docs/diagrams/li-03-verification-funnel.jpg` unaltered at full content width.
-- [ ] **Page 12** places the `3:4` portrait diagram `docs/diagrams/li-04-chat-zoom-and-stage-gates.jpg` unaltered at full content width.
+- [ ] **Page 3** shows the six-stage hours table with all four figures per stage (pre-AI, AI saves, rebound, net after AI), the `80.0 h` totals row, and the italic "Illustrative only" footnote explaining the hours are derived from the cited studies' percentages, not one team's measurements.
+- [ ] **Page 5** shows the native upstream-cause band and two-sided bar chart (three agent speedups summing to `−5.5 h` against three rebounds summing to `+8.0 h`) above the dark net-balance summary bar.
+- [ ] **Page 11** shows the native funnel: four AI generators (summing to `−35.5 h`) → human review gate → Path A slop stats vs Path B five guardrails.
+- [ ] **Page 12** shows the native two-part diagram: three-step in-chat zoom flow feeding the 3 × 2 grid of six stage gates.
 - [ ] **Pages 4 to 9** cover each of the 6 sprint stages in order with exact initial savings, rebound hours, and study citations.
 - [ ] **No text overflows any card**, and body text is at least `1/36` of page width (`captions/tables >= 1/45`).
