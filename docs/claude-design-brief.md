@@ -87,7 +87,7 @@ Design a 13-page document for a LinkedIn document post (PDF carousel). Pages are
   - Red `#B91C1C` (over-engineering, code duplication, bugs & prod incidents) with pale tint `#FFF1F2`
 - **Diagram & Table Cards:** White or pale-tint fill, solid `3 px` outline in `#334155`, `12 px` corner radius, `6 px` coloured left accent bar. Arrows are `3 px` with a single filled triangular head at the destination only. Never use double-headed arrows.
 - **Native diagrams (Pages 5, 11, and 12):** Build these in the design tool from the per-page specs below (HTML/SVG, palette colours, Inter + JetBrains Mono) rather than placing the article's Nano Banana JPEGs, whose labels fall below 12 px at slide width. The `docs/diagrams/li-0N` images remain the article's figures only.
-- **Cover Illustration (Page 1 only):** One vector diagram in the middle two-fifths of Page 1 showing six sprint stage discs on the left (Coding, Debugging/K8s, Design, Planning/Docs, Review Bots, CI/CD) feeding high-velocity blue streams (`-35.5h Initial AI Speedup`) into a central amber review and cleanup funnel (`+35.5h Cleanup, Debugging & Review Tax`, marked with a person-and-check icon), exiting as a modest `1.21x Net Delivery` arrow on the right over a faint dot grid. No stock photos, robots, or brains.
+- **Cover Illustration (Page 1 only):** One native vector diagram (HTML/SVG, palette colours) in the middle of Page 1 that carries the cover's first three points visually, so the page keeps only one text statement below it. See the Page 1 spec for the exact layout. No stock photos, robots, or brains.
 
 ---
 
@@ -99,14 +99,19 @@ Headline: `We use AI for coding, debugging, design, and docs. Why aren't we 10x 
 
 Standfirst, one paragraph in secondary text: `To find a clear answer, I built an illustrative 2-week (80-hour) sprint model from published 2025 to 2026 research telemetry rather than one team's stopwatch. When you apply those studies' percentages across all 6 stages, AI saves 35.5 hours of initial coding, troubleshooting, and drafting time, and then adds 35.5 hours of code cleanup, debugging, and PR review work right back.`
 
-Hero illustration band (native, 204 px tall, full content width, between the standfirst and the numbered points): an indigo panel `AI IN ALL SIX SPRINT STAGES` holding six colour-dotted pills (`Coding`, `Debugging/K8s`, `Design`, `Planning/Docs`, `PR review`, `CI/CD`) → blue arrow `-35.5h saved drafting` → amber gate `Human cleanup, debugging & review · +35.5h back` with a reviewer icon → indigo arrow `net per 80h sprint` → solid indigo result block `1.21× net delivery, not 10×`. Single arrowheads, left to right.
+Hero illustration band (native, about 400 px tall, full content width, between the standfirst and the closing statement). It replaces the old numbered points 1 to 3, so every number in them must appear in the band:
 
-Four numbered points, large numerals in indigo `#4F46E5`:
+- **Row 1, point 1 (indigo panel `1 · AI IS USED IN ALL SIX SPRINT STAGES, NOT JUST CODING`):** six white stage cards in one row, each with a colour dot, the stage name, and what the agent does: `Coding · writes the code`, `Debugging · inspects pods & databases`, `Design · drafts design docs`, `Planning/Docs · summarizes meetings`, `PR review · comments on PRs`, `CI/CD · writes pipeline YAML`.
+- **Connector:** a short indigo downward arrow with the italic caption `Apply the studies' stage percentages to one 80 h sprint`.
+- **Row 2, left, point 2 (blue panel `2 · INITIAL SAVINGS ARE REAL`):** three labelled hour bars on one 80 h scale: `Before AI` solid slate `80.0 h`; `AI drafting` blue `44.5 h` plus a dashed ghost segment `-35.5 h saved`; `After cleanup, debugging & review` blue `44.5 h` + amber `+35.5 h` `= 80.0 h`. Footer: `Code, troubleshooting & docs: 80.0 h → 44.5 h, 1.80× faster on paper, before cleanup.`
+- **Amber arrow `+35.5h back`** into **row 2, middle, point 3 (amber panel `3 · THE REBOUND`):** three white chips with mono numbers: `+81% · duplicated code to clean up`, `1h 56m · lost per 10-page AI design doc`, `2× PRs · twice as many, twice as large`. Footer: `Cleanup, debugging & review add +35.5 h back.`
+- **Indigo arrow `net per 80h`** into the solid indigo result block `1.21× net delivery, not 10×`.
 
-1. **AI is used across the whole sprint, not just coding.** Agents write code, inspect pods and databases, draft designs, summarize meetings, and comment on PRs.
-2. **Initial time savings are real: -35.5 hours per 80-hour sprint.** Writing code, troubleshooting issues, and drafting docs drops from 80.0 hours to 44.5 hours (1.80× faster before cleanup).
-3. **Cleanup, debugging, and review add +35.5 hours back.** Cleaning up duplicated AI code (+81% clones), rewriting generic 10-page AI design docs (1h 56m lost per doc), and reviewing 2× more PRs refill the sprint.
-4. **The bottleneck moved from writing to reviewing.** A team cannot ship faster than humans can understand, review, and trust what AI generated.
+Single filled arrowheads only; flow runs top to bottom, then left to right. Every panel must fit under both Inter and the PDF fallback font with no wrapped bar labels.
+
+One closing statement below the band, with an 8 px indigo left bar instead of a numeral (the former point 4):
+
+**The bottleneck moved from writing to reviewing.** A team cannot ship faster than humans can understand, review, and trust what AI generated.
 
 Published research cited row: `Illustrative 80h model built from published 2025 to 2026 research telemetry (not one team's stopwatch): GitClear · LinearB · Faros AI · Stanford / HBR · Microsoft Research · Google DORA`
 
@@ -424,7 +429,7 @@ Swipe through the 13-page breakdown below for the stage-by-stage 80-hour sprint 
 ## Closing Checklist for the Design Tool
 
 - [ ] **13 pages total**, 4:5 portrait (`1080 × 1350 px` or `2160 × 2700 px`), with no page counters (the pages are exported as standalone images).
-- [ ] **Page 1** includes the 6-into-1 review funnel vector illustration, 4 numbered points, and the source row stating the `-35.5 h` / `+35.5 h` figures are backed by published research.
+- [ ] **Page 1** includes the native hero illustration band (six stage cards, 80 h bars, rebound chips, `1.21×` block), the single closing statement, and the source row stating the `-35.5 h` / `+35.5 h` figures are backed by published research.
 - [ ] **Page 2** uses the `1,000 ms` producer-to-database pipeline analogy.
 - [ ] **Page 3** shows the six-stage hours table with all four figures per stage (pre-AI, AI saves, rebound, net after AI), the `80.0 h` totals row, and the italic "Illustrative only" footnote explaining the hours are derived from the cited studies' percentages, not one team's measurements.
 - [ ] **Page 5** shows the native upstream-cause band and two-sided bar chart (three agent speedups summing to `−5.5 h` against three rebounds summing to `+8.0 h`) above the dark net-balance summary bar.
